@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InvoiceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:6829/Services/InvoiceService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:6829/Services/InvoiceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IMSService.Services" />
+      <xsd:import schemaLocation="http://localhost:6829/Services/InvoiceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:6829/Services/InvoiceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IMSService.Entities" />
+      <xsd:import schemaLocation="http://localhost:6829/Services/InvoiceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IInvoiceService_GetInvoiceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceDetails" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_GetInvoiceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_GetInvoiceDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q1:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UpdateInvoiceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceDetails" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UpdateInvoiceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UpdateInvoiceDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q2:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UpdateInvoiceProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceProduct" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UpdateInvoiceProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UpdateInvoiceProduct_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q3:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UpdateInvoiceSettlement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceSettlement" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UpdateInvoiceSettlement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceSettlementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UpdateInvoiceSettlement_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q4:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_DeleteInvoiceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoiceDetails" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_DeleteInvoiceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoiceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_DeleteInvoiceDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q5:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_DeleteInvoiceProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoiceProduct" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_DeleteInvoiceProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoiceProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_DeleteInvoiceProduct_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q6:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_DeleteInvoiceSettlement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoiceSettlement" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_DeleteInvoiceSettlement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoiceSettlementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_DeleteInvoiceSettlement_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q7:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_FindGstRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindGstRate" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_FindGstRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindGstRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_FindGstRate_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q8:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_InvoiceDetailsPatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvoiceDetailsPatch" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_InvoiceDetailsPatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InvoiceDetailsPatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_InvoiceDetailsPatch_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q9:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_InvoiceProductPatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvoiceProductPatch" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_InvoiceProductPatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InvoiceProductPatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_InvoiceProductPatch_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q10:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_InvoiceSettlementPatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvoiceSettlementPatch" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_InvoiceSettlementPatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InvoiceSettlementPatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_InvoiceSettlementPatch_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q11:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UploadPatchSheet_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadPatchSheet" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UploadPatchSheet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadPatchSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UploadPatchSheet_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q12:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UploadSheetUpdateDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadSheetUpdateDelete" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UploadSheetUpdateDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadSheetUpdateDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInvoiceService_UploadSheetUpdateDelete_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q13:DataService" />
+  </wsdl:message>
+  <wsdl:portType name="IInvoiceService">
+    <wsdl:operation name="GetInvoiceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/GetInvoiceDetails" message="tns:IInvoiceService_GetInvoiceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/GetInvoiceDetailsResponse" message="tns:IInvoiceService_GetInvoiceDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/GetInvoiceDetailsDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_GetInvoiceDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/UpdateInvoiceDetails" message="tns:IInvoiceService_UpdateInvoiceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/UpdateInvoiceDetailsResponse" message="tns:IInvoiceService_UpdateInvoiceDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/UpdateInvoiceDetailsDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_UpdateInvoiceDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/UpdateInvoiceProduct" message="tns:IInvoiceService_UpdateInvoiceProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/UpdateInvoiceProductResponse" message="tns:IInvoiceService_UpdateInvoiceProduct_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/UpdateInvoiceProductDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_UpdateInvoiceProduct_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceSettlement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/UpdateInvoiceSettlement" message="tns:IInvoiceService_UpdateInvoiceSettlement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/UpdateInvoiceSettlementResponse" message="tns:IInvoiceService_UpdateInvoiceSettlement_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/UpdateInvoiceSettlementDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_UpdateInvoiceSettlement_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoiceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/DeleteInvoiceDetails" message="tns:IInvoiceService_DeleteInvoiceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/DeleteInvoiceDetailsResponse" message="tns:IInvoiceService_DeleteInvoiceDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/DeleteInvoiceDetailsDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_DeleteInvoiceDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoiceProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/DeleteInvoiceProduct" message="tns:IInvoiceService_DeleteInvoiceProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/DeleteInvoiceProductResponse" message="tns:IInvoiceService_DeleteInvoiceProduct_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/DeleteInvoiceProductDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_DeleteInvoiceProduct_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoiceSettlement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/DeleteInvoiceSettlement" message="tns:IInvoiceService_DeleteInvoiceSettlement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/DeleteInvoiceSettlementResponse" message="tns:IInvoiceService_DeleteInvoiceSettlement_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/DeleteInvoiceSettlementDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_DeleteInvoiceSettlement_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindGstRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/FindGstRate" message="tns:IInvoiceService_FindGstRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/FindGstRateResponse" message="tns:IInvoiceService_FindGstRate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/FindGstRateDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_FindGstRate_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InvoiceDetailsPatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/InvoiceDetailsPatch" message="tns:IInvoiceService_InvoiceDetailsPatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/InvoiceDetailsPatchResponse" message="tns:IInvoiceService_InvoiceDetailsPatch_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/InvoiceDetailsPatchDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_InvoiceDetailsPatch_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InvoiceProductPatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/InvoiceProductPatch" message="tns:IInvoiceService_InvoiceProductPatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/InvoiceProductPatchResponse" message="tns:IInvoiceService_InvoiceProductPatch_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/InvoiceProductPatchDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_InvoiceProductPatch_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InvoiceSettlementPatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/InvoiceSettlementPatch" message="tns:IInvoiceService_InvoiceSettlementPatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/InvoiceSettlementPatchResponse" message="tns:IInvoiceService_InvoiceSettlementPatch_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/InvoiceSettlementPatchDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_InvoiceSettlementPatch_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadPatchSheet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/UploadPatchSheet" message="tns:IInvoiceService_UploadPatchSheet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/UploadPatchSheetResponse" message="tns:IInvoiceService_UploadPatchSheet_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/UploadPatchSheetDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_UploadPatchSheet_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadSheetUpdateDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInvoiceService/UploadSheetUpdateDelete" message="tns:IInvoiceService_UploadSheetUpdateDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInvoiceService/UploadSheetUpdateDeleteResponse" message="tns:IInvoiceService_UploadSheetUpdateDelete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IInvoiceService/UploadSheetUpdateDeleteDataServiceFault" name="DataServiceFault" message="tns:IInvoiceService_UploadSheetUpdateDelete_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IInvoiceService" type="tns:IInvoiceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInvoiceDetails">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/GetInvoiceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceDetails">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/UpdateInvoiceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceProduct">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/UpdateInvoiceProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceSettlement">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/UpdateInvoiceSettlement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoiceDetails">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/DeleteInvoiceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoiceProduct">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/DeleteInvoiceProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoiceSettlement">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/DeleteInvoiceSettlement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindGstRate">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/FindGstRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InvoiceDetailsPatch">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/InvoiceDetailsPatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InvoiceProductPatch">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/InvoiceProductPatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InvoiceSettlementPatch">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/InvoiceSettlementPatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadPatchSheet">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/UploadPatchSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadSheetUpdateDelete">
+      <soap:operation soapAction="http://tempuri.org/IInvoiceService/UploadSheetUpdateDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InvoiceService">
+    <wsdl:port name="BasicHttpBinding_IInvoiceService" binding="tns:BasicHttpBinding_IInvoiceService">
+      <soap:address location="http://localhost:6829/Services/InvoiceService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

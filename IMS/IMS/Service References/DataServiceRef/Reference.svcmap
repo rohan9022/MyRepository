@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="12a082d6-313b-4a6f-9a15-f82d57bb0cf0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DataService5.xsd" MetadataType="Schema" ID="f4278747-11aa-4d25-897b-afa3d03ec753" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DataService1.disco" MetadataType="Disco" ID="5760e86e-ab26-4ca2-a8b6-f5c1b6d9a20a" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?disco" />
+    <MetadataFile FileName="DataService51.xsd" MetadataType="Schema" ID="f302a6c8-c6a3-41c6-ba39-6f7488984377" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd4" />
+    <MetadataFile FileName="DataService52.xsd" MetadataType="Schema" ID="0f4ed539-86f5-4b34-8f5c-6253dc1f3f3b" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DataService1.wsdl" MetadataType="Wsdl" ID="0df05ccb-6932-4894-bfbd-f858bf257c94" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?wsdl" />
+    <MetadataFile FileName="DataService53.xsd" MetadataType="Schema" ID="541fa0b7-5978-4fd8-9b7b-cb31d001cf8f" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataService54.xsd" MetadataType="Schema" ID="54ccfd3b-c60d-437d-a99d-b6b32cffc2aa" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

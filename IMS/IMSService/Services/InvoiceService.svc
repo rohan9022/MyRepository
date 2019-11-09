@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="IMSService.Services.InvoiceService" CodeBehind="InvoiceService.svc.cs" %>

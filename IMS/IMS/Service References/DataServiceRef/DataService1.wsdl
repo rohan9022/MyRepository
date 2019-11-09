@@ -1,0 +1,1400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IMSService.Services" />
+      <xsd:import schemaLocation="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IMSService.Entities" />
+      <xsd:import schemaLocation="https://imsservice20191106112917.azurewebsites.net/Services/DataService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataService_GetMenuList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuList" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetMenuList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetMenuList_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q1:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateMenuMaster_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateMenuMaster" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateMenuMaster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateMenuMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateMenuMaster_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q2:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteMenuMaster_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMenuMaster" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteMenuMaster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMenuMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteMenuMaster_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q3:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckLookupName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLookupName" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckLookupName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLookupNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckLookupName_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q4:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckSubLookupName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSubLookupName" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckSubLookupName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSubLookupNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckSubLookupName_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q5:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteLookup_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeleteLookup" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteLookup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeleteLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteLookup_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q6:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteSubLookup_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeleteSubLookup" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteSubLookup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeleteSubLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteSubLookup_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q7:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetLookupList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookupList" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetLookupList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookupListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetLookupList_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q8:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSubLookupList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubLookupList" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSubLookupList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubLookupListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSubLookupList_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q9:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UploadSheet_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadSheet" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UploadSheet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UploadSheet_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q10:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTemplate_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q11:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckUserNameAvailability_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserNameAvailability" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckUserNameAvailability_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserNameAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckUserNameAvailability_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q12:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_IsValidUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidUser" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_IsValidUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_IsValidUser_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q13:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetUserList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserList" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetUserList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetUserList_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q14:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetUserDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q15:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateUserDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q16:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteUser_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q17:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetProductList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductList" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetProductList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetProductList_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q18:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetProductDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetProductDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetProductDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q19:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateProductMaster_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateProductMaster" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateProductMaster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateProductMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateProductMaster_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q20:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteProduct_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q21:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStock" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckStock_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q22:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPurchaseDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPurchaseDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPurchaseDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPurchaseDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPurchaseDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q23:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeletePurchase_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeletePurchase" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeletePurchase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeletePurchaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeletePurchase_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q24:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSalesDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSalesDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSalesDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q25:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeleteSales" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeleteSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteSales_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q26:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDamagedGoodsDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDamagedGoodsDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDamagedGoodsDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDamagedGoodsDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDamagedGoodsDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q27:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteDamage_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeleteDamage" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteDamage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateDeleteDamageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateDeleteDamage_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q28:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateInvoice_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q29:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetInvoiceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetInvoiceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetInvoiceDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q30:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteInvoice_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q31:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GenInvoiceReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenInvoiceReport" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GenInvoiceReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenInvoiceReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GenInvoiceReport_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q32:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FinalInvoiceReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinalInvoiceReport" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FinalInvoiceReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FinalInvoiceReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FinalInvoiceReport_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q33:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_StatuswiseInvoiceReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:StatuswiseInvoiceReport" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_StatuswiseInvoiceReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StatuswiseInvoiceReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_StatuswiseInvoiceReport_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q34:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetVendorList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorList" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetVendorList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetVendorList_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q35:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetVendorDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetVendorDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetVendorDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q36:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateVendor" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateVendor_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q37:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVendor" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteVendor_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q38:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckVendorNameAvailability_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckVendorNameAvailability" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckVendorNameAvailability_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckVendorNameAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckVendorNameAvailability_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q39:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCompanyDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCompanyDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCompanyDetails_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q40:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckCategoryName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCategoryName" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckCategoryName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCategoryNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckCategoryName_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q41:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckSubCategoryName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSubCategoryName" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckSubCategoryName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSubCategoryNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CheckSubCategoryName_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q42:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateCategory" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateCategory_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q43:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateSubCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateSubCategory" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateSubCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUpdateSubCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_InsertUpdateSubCategory_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q44:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCategoryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryList" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCategoryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCategoryList_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q45:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSubCategoryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubCategoryList" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSubCategoryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubCategoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSubCategoryList_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q46:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategory" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCategory_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q47:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteSubCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubCategory" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteSubCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteSubCategory_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q48:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_BulkDeleteInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:BulkDeleteInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_BulkDeleteInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BulkDeleteInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_BulkDeleteInvoice_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q49:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_MonthVendorTaxReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:MonthVendorTaxReport" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_MonthVendorTaxReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MonthVendorTaxReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_MonthVendorTaxReport_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q50:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Rpt_Sales_InputMessage">
+    <wsdl:part name="parameters" element="tns:Rpt_Sales" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Rpt_Sales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Rpt_SalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Rpt_Sales_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q51:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GenCreditNoteReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenCreditNoteReport" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GenCreditNoteReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenCreditNoteReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GenCreditNoteReport_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q52:DataService" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FindGstRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindGstRate" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FindGstRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindGstRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FindGstRate_DataServiceFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.datacontract.org/2004/07/IMSService.Services" name="detail" element="q53:DataService" />
+  </wsdl:message>
+  <wsdl:portType name="IDataService">
+    <wsdl:operation name="GetMenuList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetMenuList" message="tns:IDataService_GetMenuList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetMenuListResponse" message="tns:IDataService_GetMenuList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetMenuListDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetMenuList_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateMenuMaster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateMenuMaster" message="tns:IDataService_InsertUpdateMenuMaster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateMenuMasterResponse" message="tns:IDataService_InsertUpdateMenuMaster_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateMenuMasterDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateMenuMaster_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenuMaster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteMenuMaster" message="tns:IDataService_DeleteMenuMaster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteMenuMasterResponse" message="tns:IDataService_DeleteMenuMaster_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/DeleteMenuMasterDataServiceFault" name="DataServiceFault" message="tns:IDataService_DeleteMenuMaster_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLookupName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CheckLookupName" message="tns:IDataService_CheckLookupName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CheckLookupNameResponse" message="tns:IDataService_CheckLookupName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/CheckLookupNameDataServiceFault" name="DataServiceFault" message="tns:IDataService_CheckLookupName_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSubLookupName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CheckSubLookupName" message="tns:IDataService_CheckSubLookupName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CheckSubLookupNameResponse" message="tns:IDataService_CheckSubLookupName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/CheckSubLookupNameDataServiceFault" name="DataServiceFault" message="tns:IDataService_CheckSubLookupName_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeleteLookup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteLookup" message="tns:IDataService_InsertUpdateDeleteLookup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteLookupResponse" message="tns:IDataService_InsertUpdateDeleteLookup_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteLookupDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateDeleteLookup_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeleteSubLookup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteSubLookup" message="tns:IDataService_InsertUpdateDeleteSubLookup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteSubLookupResponse" message="tns:IDataService_InsertUpdateDeleteSubLookup_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteSubLookupDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateDeleteSubLookup_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetLookupList" message="tns:IDataService_GetLookupList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetLookupListResponse" message="tns:IDataService_GetLookupList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetLookupListDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetLookupList_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubLookupList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetSubLookupList" message="tns:IDataService_GetSubLookupList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetSubLookupListResponse" message="tns:IDataService_GetSubLookupList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetSubLookupListDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetSubLookupList_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadSheet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UploadSheet" message="tns:IDataService_UploadSheet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UploadSheetResponse" message="tns:IDataService_UploadSheet_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/UploadSheetDataServiceFault" name="DataServiceFault" message="tns:IDataService_UploadSheet_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetTemplate" message="tns:IDataService_GetTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetTemplateResponse" message="tns:IDataService_GetTemplate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetTemplateDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetTemplate_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserNameAvailability">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CheckUserNameAvailability" message="tns:IDataService_CheckUserNameAvailability_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CheckUserNameAvailabilityResponse" message="tns:IDataService_CheckUserNameAvailability_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/CheckUserNameAvailabilityDataServiceFault" name="DataServiceFault" message="tns:IDataService_CheckUserNameAvailability_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/IsValidUser" message="tns:IDataService_IsValidUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/IsValidUserResponse" message="tns:IDataService_IsValidUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/IsValidUserDataServiceFault" name="DataServiceFault" message="tns:IDataService_IsValidUser_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetUserList" message="tns:IDataService_GetUserList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetUserListResponse" message="tns:IDataService_GetUserList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetUserListDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetUserList_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetUserDetails" message="tns:IDataService_GetUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetUserDetailsResponse" message="tns:IDataService_GetUserDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetUserDetailsDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetUserDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateUserDetails" message="tns:IDataService_InsertUpdateUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateUserDetailsResponse" message="tns:IDataService_InsertUpdateUserDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateUserDetailsDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateUserDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteUser" message="tns:IDataService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteUserResponse" message="tns:IDataService_DeleteUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/DeleteUserDataServiceFault" name="DataServiceFault" message="tns:IDataService_DeleteUser_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetProductList" message="tns:IDataService_GetProductList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetProductListResponse" message="tns:IDataService_GetProductList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetProductListDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetProductList_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetProductDetails" message="tns:IDataService_GetProductDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetProductDetailsResponse" message="tns:IDataService_GetProductDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetProductDetailsDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetProductDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateProductMaster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateProductMaster" message="tns:IDataService_InsertUpdateProductMaster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateProductMasterResponse" message="tns:IDataService_InsertUpdateProductMaster_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateProductMasterDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateProductMaster_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteProduct" message="tns:IDataService_DeleteProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteProductResponse" message="tns:IDataService_DeleteProduct_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/DeleteProductDataServiceFault" name="DataServiceFault" message="tns:IDataService_DeleteProduct_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CheckStock" message="tns:IDataService_CheckStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CheckStockResponse" message="tns:IDataService_CheckStock_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/CheckStockDataServiceFault" name="DataServiceFault" message="tns:IDataService_CheckStock_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchaseDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetPurchaseDetails" message="tns:IDataService_GetPurchaseDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetPurchaseDetailsResponse" message="tns:IDataService_GetPurchaseDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetPurchaseDetailsDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetPurchaseDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeletePurchase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeletePurchase" message="tns:IDataService_InsertUpdateDeletePurchase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeletePurchaseResponse" message="tns:IDataService_InsertUpdateDeletePurchase_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeletePurchaseDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateDeletePurchase_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetSalesDetails" message="tns:IDataService_GetSalesDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetSalesDetailsResponse" message="tns:IDataService_GetSalesDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetSalesDetailsDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetSalesDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeleteSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteSales" message="tns:IDataService_InsertUpdateDeleteSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteSalesResponse" message="tns:IDataService_InsertUpdateDeleteSales_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteSalesDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateDeleteSales_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDamagedGoodsDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetDamagedGoodsDetails" message="tns:IDataService_GetDamagedGoodsDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetDamagedGoodsDetailsResponse" message="tns:IDataService_GetDamagedGoodsDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetDamagedGoodsDetailsDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetDamagedGoodsDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeleteDamage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteDamage" message="tns:IDataService_InsertUpdateDeleteDamage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteDamageResponse" message="tns:IDataService_InsertUpdateDeleteDamage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateDeleteDamageDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateDeleteDamage_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateInvoice" message="tns:IDataService_InsertUpdateInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateInvoiceResponse" message="tns:IDataService_InsertUpdateInvoice_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateInvoiceDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateInvoice_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetInvoiceDetails" message="tns:IDataService_GetInvoiceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetInvoiceDetailsResponse" message="tns:IDataService_GetInvoiceDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetInvoiceDetailsDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetInvoiceDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteInvoice" message="tns:IDataService_DeleteInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteInvoiceResponse" message="tns:IDataService_DeleteInvoice_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/DeleteInvoiceDataServiceFault" name="DataServiceFault" message="tns:IDataService_DeleteInvoice_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenInvoiceReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GenInvoiceReport" message="tns:IDataService_GenInvoiceReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GenInvoiceReportResponse" message="tns:IDataService_GenInvoiceReport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GenInvoiceReportDataServiceFault" name="DataServiceFault" message="tns:IDataService_GenInvoiceReport_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinalInvoiceReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/FinalInvoiceReport" message="tns:IDataService_FinalInvoiceReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/FinalInvoiceReportResponse" message="tns:IDataService_FinalInvoiceReport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/FinalInvoiceReportDataServiceFault" name="DataServiceFault" message="tns:IDataService_FinalInvoiceReport_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StatuswiseInvoiceReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/StatuswiseInvoiceReport" message="tns:IDataService_StatuswiseInvoiceReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/StatuswiseInvoiceReportResponse" message="tns:IDataService_StatuswiseInvoiceReport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/StatuswiseInvoiceReportDataServiceFault" name="DataServiceFault" message="tns:IDataService_StatuswiseInvoiceReport_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetVendorList" message="tns:IDataService_GetVendorList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetVendorListResponse" message="tns:IDataService_GetVendorList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetVendorListDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetVendorList_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetVendorDetails" message="tns:IDataService_GetVendorDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetVendorDetailsResponse" message="tns:IDataService_GetVendorDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetVendorDetailsDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetVendorDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateVendor" message="tns:IDataService_InsertUpdateVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateVendorResponse" message="tns:IDataService_InsertUpdateVendor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateVendorDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateVendor_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteVendor" message="tns:IDataService_DeleteVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteVendorResponse" message="tns:IDataService_DeleteVendor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/DeleteVendorDataServiceFault" name="DataServiceFault" message="tns:IDataService_DeleteVendor_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckVendorNameAvailability">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CheckVendorNameAvailability" message="tns:IDataService_CheckVendorNameAvailability_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CheckVendorNameAvailabilityResponse" message="tns:IDataService_CheckVendorNameAvailability_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/CheckVendorNameAvailabilityDataServiceFault" name="DataServiceFault" message="tns:IDataService_CheckVendorNameAvailability_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetCompanyDetails" message="tns:IDataService_GetCompanyDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetCompanyDetailsResponse" message="tns:IDataService_GetCompanyDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetCompanyDetailsDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetCompanyDetails_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCategoryName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CheckCategoryName" message="tns:IDataService_CheckCategoryName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CheckCategoryNameResponse" message="tns:IDataService_CheckCategoryName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/CheckCategoryNameDataServiceFault" name="DataServiceFault" message="tns:IDataService_CheckCategoryName_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSubCategoryName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CheckSubCategoryName" message="tns:IDataService_CheckSubCategoryName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CheckSubCategoryNameResponse" message="tns:IDataService_CheckSubCategoryName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/CheckSubCategoryNameDataServiceFault" name="DataServiceFault" message="tns:IDataService_CheckSubCategoryName_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateCategory" message="tns:IDataService_InsertUpdateCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateCategoryResponse" message="tns:IDataService_InsertUpdateCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateCategoryDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateCategory_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateSubCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/InsertUpdateSubCategory" message="tns:IDataService_InsertUpdateSubCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/InsertUpdateSubCategoryResponse" message="tns:IDataService_InsertUpdateSubCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/InsertUpdateSubCategoryDataServiceFault" name="DataServiceFault" message="tns:IDataService_InsertUpdateSubCategory_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetCategoryList" message="tns:IDataService_GetCategoryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetCategoryListResponse" message="tns:IDataService_GetCategoryList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetCategoryListDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetCategoryList_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubCategoryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetSubCategoryList" message="tns:IDataService_GetSubCategoryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetSubCategoryListResponse" message="tns:IDataService_GetSubCategoryList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetSubCategoryListDataServiceFault" name="DataServiceFault" message="tns:IDataService_GetSubCategoryList_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteCategory" message="tns:IDataService_DeleteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteCategoryResponse" message="tns:IDataService_DeleteCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/DeleteCategoryDataServiceFault" name="DataServiceFault" message="tns:IDataService_DeleteCategory_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteSubCategory" message="tns:IDataService_DeleteSubCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteSubCategoryResponse" message="tns:IDataService_DeleteSubCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/DeleteSubCategoryDataServiceFault" name="DataServiceFault" message="tns:IDataService_DeleteSubCategory_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BulkDeleteInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/BulkDeleteInvoice" message="tns:IDataService_BulkDeleteInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/BulkDeleteInvoiceResponse" message="tns:IDataService_BulkDeleteInvoice_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/BulkDeleteInvoiceDataServiceFault" name="DataServiceFault" message="tns:IDataService_BulkDeleteInvoice_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MonthVendorTaxReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/MonthVendorTaxReport" message="tns:IDataService_MonthVendorTaxReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/MonthVendorTaxReportResponse" message="tns:IDataService_MonthVendorTaxReport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/MonthVendorTaxReportDataServiceFault" name="DataServiceFault" message="tns:IDataService_MonthVendorTaxReport_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Rpt_Sales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Rpt_Sales" message="tns:IDataService_Rpt_Sales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/Rpt_SalesResponse" message="tns:IDataService_Rpt_Sales_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/Rpt_SalesDataServiceFault" name="DataServiceFault" message="tns:IDataService_Rpt_Sales_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenCreditNoteReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GenCreditNoteReport" message="tns:IDataService_GenCreditNoteReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GenCreditNoteReportResponse" message="tns:IDataService_GenCreditNoteReport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GenCreditNoteReportDataServiceFault" name="DataServiceFault" message="tns:IDataService_GenCreditNoteReport_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindGstRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/FindGstRate" message="tns:IDataService_FindGstRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/FindGstRateResponse" message="tns:IDataService_FindGstRate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/FindGstRateDataServiceFault" name="DataServiceFault" message="tns:IDataService_FindGstRate_DataServiceFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataService" type="tns:IDataService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMenuList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetMenuList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateMenuMaster">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateMenuMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenuMaster">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteMenuMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLookupName">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CheckLookupName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSubLookupName">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CheckSubLookupName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeleteLookup">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateDeleteLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeleteSubLookup">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateDeleteSubLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetLookupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubLookupList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetSubLookupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadSheet">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UploadSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplate">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserNameAvailability">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CheckUserNameAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidUser">
+      <soap:operation soapAction="http://tempuri.org/IDataService/IsValidUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetUserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetProductList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetProductDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateProductMaster">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateProductMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckStock">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CheckStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchaseDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetPurchaseDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeletePurchase">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateDeletePurchase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetSalesDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeleteSales">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateDeleteSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDamagedGoodsDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetDamagedGoodsDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateDeleteDamage">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateDeleteDamage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateInvoice">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetInvoiceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoice">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GenInvoiceReport">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GenInvoiceReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FinalInvoiceReport">
+      <soap:operation soapAction="http://tempuri.org/IDataService/FinalInvoiceReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StatuswiseInvoiceReport">
+      <soap:operation soapAction="http://tempuri.org/IDataService/StatuswiseInvoiceReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetVendorList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetVendorDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateVendor">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateVendor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVendor">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteVendor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckVendorNameAvailability">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CheckVendorNameAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetCompanyDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCategoryName">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CheckCategoryName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSubCategoryName">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CheckSubCategoryName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateCategory">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateSubCategory">
+      <soap:operation soapAction="http://tempuri.org/IDataService/InsertUpdateSubCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetCategoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubCategoryList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetSubCategoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubCategory">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteSubCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="BulkDeleteInvoice">
+      <soap:operation soapAction="http://tempuri.org/IDataService/BulkDeleteInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MonthVendorTaxReport">
+      <soap:operation soapAction="http://tempuri.org/IDataService/MonthVendorTaxReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Rpt_Sales">
+      <soap:operation soapAction="http://tempuri.org/IDataService/Rpt_Sales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GenCreditNoteReport">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GenCreditNoteReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindGstRate">
+      <soap:operation soapAction="http://tempuri.org/IDataService/FindGstRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DataServiceFault">
+        <soap:fault use="literal" name="DataServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataService">
+    <wsdl:port name="BasicHttpBinding_IDataService" binding="tns:BasicHttpBinding_IDataService">
+      <soap:address location="http://imsservice20191106112917.azurewebsites.net/Services/DataService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

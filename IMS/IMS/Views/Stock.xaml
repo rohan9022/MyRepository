@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="IMS.Views.Stock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             Height="375" Width="700">
+    <Canvas>
+        <TextBlock Text="Quantity" Canvas.Top="10" Canvas.Left="58"/>
+        <TextBlock Text="Product" Canvas.Top="10" Canvas.Left="388"/>
+        <TextBox Canvas.Top="31" Canvas.Left="10" Width="147">
+            <TextBox.Template>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox Width="67" ItemsSource="{Binding lstSearch}" SelectedValue="{Binding searchMode}" SelectedValuePath="ID" DisplayMemberPath="Val"/>
+                        <xceed:IntegerUpDown Width="80" Minimum="-25" Maximum="9999" DefaultValue="1" Text="{Binding Quantity,Mode=TwoWay}"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+        <ComboBox Canvas.Top="31" Canvas.Left="186" Width="450" IsEditable="True" ItemsSource="{Binding lstProduct}" SelectedValue="{Binding ProductID, Mode=TwoWay}" SelectedValuePath="ID" DisplayMemberPath="Name" Text="{Binding ProductName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Canvas.Left="656" Canvas.Top="30" Height="24" Width="34" Command="{Binding cmdSearch}">
+            <Button.Background>
+                <ImageBrush ImageSource="/IMS;component/Images/SearchMagnifier.png"/>
+            </Button.Background>
+        </Button>
+        <DataGrid Style="{StaticResource DataGridStyle}" Canvas.Left="10" AutoGenerateColumns="False" CanUserAddRows="False" Canvas.Top="63" Width="680" Height="302" ItemsSource="{Binding lstStock}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ProductID}" Width="77" Header="Product" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Name}" Width="300" Header="Name" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding TotalQuota}" Width="100" Header="Available Stock" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding TotalSale}" Width="100" Header="Total Sales" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding TotalDamage}" Width="100" Header="Total Damaged" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Canvas>
+</UserControl>

@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="IMS.Views.CategoryMaster"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:IMS.Helper"
+             mc:Ignorable="d" 
+             Height="300" Width="300" Style="{StaticResource userCtrlStyle}">
+    <Canvas>
+        <TextBlock Text="Category" Canvas.Left="85" Canvas.Top="46"/>
+        <ComboBox Width="100" Height="24" Canvas.Left="138" Canvas.Top="42" IsEnabled="{Binding Pk}" ItemsSource="{Binding lstCategory,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="CategoryID" DisplayMemberPath="Name" SelectedValue="{Binding categoryID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding cmdCategoryDetails}" CommandParameter="{Binding SelectedIndex,RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ComboBox>
+
+        <TextBlock Text="Name" Canvas.Left="96" Canvas.Top="85"/>
+
+        <Button Height="24" Width="80" Content="{Binding modeContent}" Canvas.Left="53" Canvas.Top="249" Command="{Binding cmdSave}"/>
+        <Button Height="24" Width="80" Content="Clear" Canvas.Left="138" Canvas.Top="249" Command="{Binding cmdClear}"/>
+        <TextBlock Text="CGST" Canvas.Left="103" Canvas.Top="125"/>
+        <TextBlock Text="SGST" Canvas.Left="103" Canvas.Top="167"/>
+        <TextBlock Text="IGST" Canvas.Left="103" Canvas.Top="209"/>
+        <Canvas Height="145" Canvas.Left="138" Canvas.Top="81" Width="100" IsEnabled="{Binding Ck}" >
+            <TextBox Width="100" Height="24" Text="{Binding categoryName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            <TextBox Width="100" Height="24" Canvas.Top="40" Text="{Binding cgst, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" ctrl:RegexInteractor.RegexEntry="False" ctrl:RegexInteractor.Expression="\d+(\.\d{1,2})?"/>
+            <TextBox Width="100" Height="24" Canvas.Top="82" Text="{Binding sgst, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" ctrl:RegexInteractor.RegexEntry="False" ctrl:RegexInteractor.Expression="\d+(\.\d{1,2})?"/>
+            <TextBox Width="100" Height="24" Canvas.Top="124" Text="{Binding igst, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" ctrl:RegexInteractor.RegexEntry="False" ctrl:RegexInteractor.Expression="\d+(\.\d{1,2})?"/>
+        </Canvas>
+    </Canvas>
+</UserControl>

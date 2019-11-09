@@ -1,0 +1,25 @@
+﻿<UserControl
+             x:Class="IMS.Views.InvoiceDetailsPatch"          
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+             Style="{StaticResource userCtrlStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"
+             Height="300" Width="375">
+    <Canvas>
+        <TextBlock Text="From Invoice No" Canvas.Left="19" Canvas.Top="39" />
+        <TextBlock Text="To Invoice No" Canvas.Left="33" Canvas.Top="66"/>
+        <TextBlock Text="From Invoice Date" Canvas.Left="10" Canvas.Top="100"/>
+        <TextBlock Text="To Invoice Date" Canvas.Left="24" Canvas.Top="137"/>
+        <TextBox Text="{Binding fromInvoiceNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="118" Canvas.Top="39" Width="120"/>
+        <TextBox Text="{Binding toInvoiceNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="118" Canvas.Top="66" Width="120"/>
+        <xctk:DateTimePicker FormatString="dd/MM/yyyy" Width="120" Value="{Binding fromInvoiceDate, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="118" Canvas.Top="100" />
+        <xctk:DateTimePicker FormatString="dd/MM/yyyy" Width="120" Value="{Binding toInvoiceDate, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="118" Canvas.Top="129" />
+        <Button Width="Auto" Height="Auto" Content="Blank Date" Command="{Binding cmdBlankDate}" Canvas.Left="291" Canvas.Top="137"/>
+        <Button Width="Auto" Height="Auto" Content="Generate Excel" Command="{Binding cmdGenerateExcel}" Canvas.Left="10" Canvas.Top="250"/>
+        <Button Width="Auto" Height="Auto" Content="Upload Excel" Command="{Binding cmdUploadExcel}" Canvas.Left="118" Canvas.Top="250"/>
+        <Button Width="74" Height="Auto" Content="Error File" Command="{Binding cmdErrorFile}" Canvas.Left="210" Canvas.Top="250"/>
+        <Button Width="74" Height="Auto" Content="Clear" Command="{Binding cmdClear}" Canvas.Left="291" Canvas.Top="250"/>
+    </Canvas>
+</UserControl>

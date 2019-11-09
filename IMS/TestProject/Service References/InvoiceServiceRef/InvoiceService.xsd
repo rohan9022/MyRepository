@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IMSService.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IMSService.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfInvoiceDetailsService">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceDetailsService" nillable="true" type="tns:InvoiceDetailsService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceDetailsService" nillable="true" type="tns:ArrayOfInvoiceDetailsService" />
+  <xs:complexType name="InvoiceDetailsService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FinalStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="ICustomer" nillable="true" type="tns:ArrayOfCustomer" />
+      <xs:element minOccurs="0" name="IGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IProduct" nillable="true" type="tns:ArrayOfProductDetails" />
+      <xs:element minOccurs="0" name="InvoiceAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceNo" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SettlementAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_CGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_IGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_SGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_Total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Vendor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceDetailsService" nillable="true" type="tns:InvoiceDetailsService" />
+  <xs:complexType name="ArrayOfCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartyName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ArrayOfProductDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDetails" nillable="true" type="tns:ProductDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductDetails" nillable="true" type="tns:ArrayOfProductDetails" />
+  <xs:complexType name="ProductDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CGSTPerc" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IGSTPerc" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ISettlement" nillable="true" type="tns:ArrayOfSettlementDetails" />
+      <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceNo" type="xs:int" />
+      <xs:element minOccurs="0" name="NetSale" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OrderDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="Rate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SGSTPerc" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SettlementAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_CGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_IGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_NetSale" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_SGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_Total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Shipping_UnitPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="StringStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UnitPrice" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductDetails" nillable="true" type="tns:ProductDetails" />
+  <xs:complexType name="ArrayOfSettlementDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SettlementDetails" nillable="true" type="tns:SettlementDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSettlementDetails" nillable="true" type="tns:ArrayOfSettlementDetails" />
+  <xs:complexType name="SettlementDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceNo" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SettlementAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SettlementDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SrNo" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="StringStatus" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SettlementDetails" nillable="true" type="tns:SettlementDetails" />
+  <xs:complexType name="ArrayOfInvoiceCustomerDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceCustomerDetails" nillable="true" type="tns:InvoiceCustomerDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceCustomerDetails" nillable="true" type="tns:ArrayOfInvoiceCustomerDetails" />
+  <xs:complexType name="InvoiceCustomerDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinalStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceNo" type="xs:int" />
+      <xs:element minOccurs="0" name="MobileNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vendor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceCustomerDetails" nillable="true" type="tns:InvoiceCustomerDetails" />
+</xs:schema>

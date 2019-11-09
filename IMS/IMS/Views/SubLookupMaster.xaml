@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="IMS.Views.SubLookupMaster"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             Height="400" Width="690" Style="{StaticResource userCtrlStyle}">
+    <Canvas>
+        <TextBlock Text="Lookup" Canvas.Left="10" Canvas.Top="18"/>
+        <ListBox Width="214" Height="342" Canvas.Left="10" Canvas.Top="48" ItemsSource="{Binding lstLookup}" DisplayMemberPath="Name" SelectedValuePath="ID" SelectedValue="{Binding LookupID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding cmdLookup}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+        <TextBlock Text="SubLookup" Canvas.Left="238" Canvas.Top="18"/>
+        <ListBox Width="214" Height="342" Canvas.Left="238" Canvas.Top="48" ItemsSource="{Binding lstSubLookup}" DisplayMemberPath="Name" SelectedValuePath="ID" SelectedValue="{Binding SubLookupID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Pk}" SelectedIndex="{Binding dgSelectedIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding cmdSubLookup}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+        <TextBlock Text="SubLookupName" Canvas.Left="466" Canvas.Top="18"/>
+        <TextBox Width="214" Height="24" Canvas.Left="466" Canvas.Top="48" Text="{Binding SubLookupName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Ck}"/>
+
+        <Button Height="24" Width="80" Content="{Binding modeContent}" Canvas.Left="466" Canvas.Top="92" Command="{Binding cmdSave}"/>
+        <Button Height="24" Width="80" Content="Clear" Canvas.Left="560" Canvas.Top="92" Command="{Binding cmdClear}"/>
+    </Canvas>
+</UserControl>

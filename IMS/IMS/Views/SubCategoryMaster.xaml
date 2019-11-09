@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="IMS.Views.SubCategoryMaster"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             Height="400" Width="690" Style="{StaticResource userCtrlStyle}">
+    <Canvas>
+        <TextBlock Text="Category" Canvas.Left="10" Canvas.Top="18"/>
+        <ListBox Width="214" Height="342" Canvas.Left="10" Canvas.Top="48" ItemsSource="{Binding lstCategory}" DisplayMemberPath="Name" SelectedValuePath="CategoryID" SelectedValue="{Binding categoryID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding cmdCategory}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+        <TextBlock Text="SubCategory" Canvas.Left="238" Canvas.Top="18"/>
+        <ListBox Width="214" Height="342" Canvas.Left="238" Canvas.Top="48" ItemsSource="{Binding lstSubCategory}" DisplayMemberPath="Name" SelectedValuePath="SubCategoryID" SelectedValue="{Binding subCategoryID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Pk}" SelectedIndex="{Binding dgSelectedIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding cmdSubCategory}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+        <TextBlock Text="SubCategoryName" Canvas.Left="466" Canvas.Top="18"/>
+        <TextBox Width="214" Height="24" Canvas.Left="466" Canvas.Top="48" Text="{Binding SubCategoryName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Ck}"/>
+
+        <Button Height="24" Width="80" Content="{Binding modeContent}" Canvas.Left="466" Canvas.Top="92" Command="{Binding cmdSave}"/>
+        <Button Height="24" Width="80" Content="Clear" Canvas.Left="560" Canvas.Top="92" Command="{Binding cmdClear}"/>
+    </Canvas>
+</UserControl>

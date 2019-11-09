@@ -1,0 +1,844 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\WiX.3.11.1\build\wix.props" Condition="Exists('..\packages\WiX.3.11.1\build\wix.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FA3EA81-97B7-4B0A-9116-4AE8B729C125}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IMS</RootNamespace>
+    <AssemblyName>IMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\IMSSetup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://localhost/IMSSetup/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>IMS.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>IMS.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B87CF0E76F4D1B8C2661F45597D440BF2A498203</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>IMS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>IMS.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>IMS.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IMSLibrary">
+      <HintPath>..\Assemblies\IMSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>..\Assemblies\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit">
+      <HintPath>..\Assemblies\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\Assemblies\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFToolkit">
+      <HintPath>..\Assemblies\WPFToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\Assemblies\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\Const.cs" />
+    <Compile Include="Helper\DatabaseBackupService.cs" />
+    <Compile Include="Helper\DateTimeConverter.cs" />
+    <Compile Include="Helper\DelegateCommand.cs" />
+    <Compile Include="Helper\Helper.cs" />
+    <Compile Include="Helper\INIFile.cs" />
+    <Compile Include="Helper\RegexInteractor.cs" />
+    <Compile Include="Helper\TextBoxInputBehaviour.cs" />
+    <Compile Include="Helper\ViewModelBase.cs" />
+    <Compile Include="Helper\ViewModelBaseWithDispatcher.cs" />
+    <Compile Include="Models\Global.cs" />
+    <Compile Include="Models\MenuMaster.cs" />
+    <Compile Include="Models\TabList.cs" />
+    <Compile Include="Service References\DataServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\InvoiceServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\DamageViewModel.cs" />
+    <Compile Include="ViewModels\Latest\InvoiceDetailsMasterSeparateViewModel.cs" />
+    <Compile Include="ViewModels\Latest\InvoiceDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Patch\InvoiceDetailsPatchViewModel.cs" />
+    <Compile Include="ViewModels\Patch\InvoiceProductPatchViewModel.cs" />
+    <Compile Include="ViewModels\Patch\InvoiceSettlementPatchViewModel.cs" />
+    <Compile Include="ViewModels\Patch\InvoicingPatchViewModel.cs" />
+    <Compile Include="ViewModels\Patch\SettlementPatchViewModel.cs" />
+    <Compile Include="ViewModels\Reports\CreditNoteViewModel.cs" />
+    <Compile Include="ViewModels\Reports\FinalInvoiceViewModel.cs" />
+    <Compile Include="ViewModels\HomeWindowViewModel.cs" />
+    <Compile Include="ViewModels\Reports\InvoiceStatusViewModel.cs" />
+    <Compile Include="ViewModels\InvoiceViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\LookupViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\Patch\BulkDeleteViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseViewModel.cs" />
+    <Compile Include="ViewModels\Reports\SalesReportViewModel.cs" />
+    <Compile Include="ViewModels\SalesViewModel.cs" />
+    <Compile Include="ViewModels\StockViewModel.cs" />
+    <Compile Include="ViewModels\SubCategoryViewModel.cs" />
+    <Compile Include="ViewModels\SubLookupViewModel.cs" />
+    <Compile Include="ViewModels\Reports\TaxReportViewModel.cs" />
+    <Compile Include="ViewModels\UploadSheetViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\VendorViewModel.cs" />
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoryMaster.xaml.cs">
+      <DependentUpon>CategoryMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Damage.xaml.cs">
+      <DependentUpon>Damage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dashboard7R.xaml.cs">
+      <DependentUpon>Dashboard7R.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinalInvoice.xaml.cs">
+      <DependentUpon>FinalInvoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenReports.xaml.cs">
+      <DependentUpon>GenReports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeWindow.xaml.cs">
+      <DependentUpon>HomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Invoice.xaml.cs">
+      <DependentUpon>Invoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvoiceStatus.xaml.cs">
+      <DependentUpon>InvoiceStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Latest\InvoiceDetailsMaster.xaml.cs">
+      <DependentUpon>InvoiceDetailsMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Latest\InvoiceDetailsMasterSeparate.xaml.cs">
+      <DependentUpon>InvoiceDetailsMasterSeparate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LookupMaster.xaml.cs">
+      <DependentUpon>LookupMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuMaster.xaml.cs">
+      <DependentUpon>MenuMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Patch\BulkDeleteInvoice.xaml.cs">
+      <DependentUpon>BulkDeleteInvoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Patch\InvoiceDetailsPatch.xaml.cs">
+      <DependentUpon>InvoiceDetailsPatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Patch\InvoiceProductPatch.xaml.cs">
+      <DependentUpon>InvoiceProductPatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Patch\InvoiceSettlementPatch.xaml.cs">
+      <DependentUpon>InvoiceSettlementPatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Patch\InvoicingPatch.xaml.cs">
+      <DependentUpon>InvoicingPatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Patch\Patch.xaml.cs">
+      <DependentUpon>Patch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Patch\SettlementPatch.xaml.cs">
+      <DependentUpon>SettlementPatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Product.xaml.cs">
+      <DependentUpon>Product.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase.xaml.cs">
+      <DependentUpon>Purchase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\CreditNoteReportView.xaml.cs">
+      <DependentUpon>CreditNoteReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ProductReport.xaml.cs">
+      <DependentUpon>ProductReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\PurchaseReport.xaml.cs">
+      <DependentUpon>PurchaseReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\SalesReport.xaml.cs">
+      <DependentUpon>SalesReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\TaxReport.xaml.cs">
+      <DependentUpon>TaxReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\VendorReport.xaml.cs">
+      <DependentUpon>VendorReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sales.xaml.cs">
+      <DependentUpon>Sales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScreenLock.xaml.cs">
+      <DependentUpon>ScreenLock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Stock.xaml.cs">
+      <DependentUpon>Stock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubCategoryMaster.xaml.cs">
+      <DependentUpon>SubCategoryMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubLookupMaster.xaml.cs">
+      <DependentUpon>SubLookupMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UploadSheet.xaml.cs">
+      <DependentUpon>UploadSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User.xaml.cs">
+      <DependentUpon>User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vendor.xaml.cs">
+      <DependentUpon>Vendor.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="IMS.ruleset" />
+    <None Include="packages.config" />
+    <None Include="Service References\DataServiceRef\configuration91.svcinfo" />
+    <None Include="Service References\DataServiceRef\configuration.svcinfo" />
+    <None Include="Service References\DataServiceRef\DataService1.wsdl" />
+    <None Include="Service References\DataServiceRef\DataService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServiceRef\DataService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServiceRef\DataService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServiceRef\DataService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServiceRef\DataService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.CompanyMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.CreditNoteReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.Damage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.InvoiceMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.InvoiceReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.InvoiceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.Lookup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.MenuMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.Product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.ProductList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.Purchase.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.Sales.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.SalesReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.SubCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.TaxReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.TupleOfstringstringboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.UserDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.UserList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\IMS.DataServiceRef.VendorMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Resource Include="Images\Icon.PNG" />
+    <None Include="Service References\DataServiceRef\DataService1.disco" />
+    <None Include="Service References\InvoiceServiceRef\InvoiceService1.disco" />
+    <Content Include="Views\Reports\I0001_CSGST.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\I0001_IGST.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\I0003_CSGST.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\I0003_IGST.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\I0006_CSGST.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\I0006_IGST.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\InvoiceDetailsPatch.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\InvoiceProductPatch.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\InvoiceSettlementPatch.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\InvoiceServiceRef\IMS.InvoiceServiceRef.InvoiceCustomerDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InvoiceServiceRef\IMS.InvoiceServiceRef.InvoiceDetailsService.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InvoiceServiceRef\IMS.InvoiceServiceRef.ProductDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InvoiceServiceRef\IMS.InvoiceServiceRef.SettlementDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InvoiceServiceRef\IMS.InvoiceServiceRef.TupleOfstringstringboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Resource Include="Images\Signature.PNG" />
+    <Resource Include="Images\Stamp.png" />
+    <None Include="Service References\InvoiceServiceRef\configuration91.svcinfo" />
+    <None Include="Service References\InvoiceServiceRef\configuration.svcinfo" />
+    <None Include="Service References\InvoiceServiceRef\InvoiceService1.wsdl" />
+    <None Include="Service References\InvoiceServiceRef\InvoiceService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InvoiceServiceRef\InvoiceService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InvoiceServiceRef\InvoiceService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InvoiceServiceRef\InvoiceService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InvoiceServiceRef\InvoiceService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InvoiceServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Reports\I0005.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\I0004.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Reports\I0002.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="IMS_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\b\appbar.arrow.right.left.png" />
+    <Resource Include="Images\b\appbar.book.perspective.help.png" />
+    <Resource Include="Images\b\appbar.calculator.png" />
+    <Resource Include="Images\b\appbar.check.png" />
+    <Resource Include="Images\b\appbar.close.png" />
+    <Resource Include="Images\b\appbar.control.guide.png" />
+    <Resource Include="Images\b\appbar.customerservice.png" />
+    <Resource Include="Images\b\appbar.delete.png" />
+    <Resource Include="Images\b\appbar.email.outlook.png" />
+    <Resource Include="Images\b\appbar.folder.png" />
+    <Resource Include="Images\b\appbar.group.add.png" />
+    <Resource Include="Images\b\appbar.group.delete.png" />
+    <Resource Include="Images\b\appbar.group.png" />
+    <Resource Include="Images\b\appbar.home.png" />
+    <Resource Include="Images\b\appbar.ie.png" />
+    <Resource Include="Images\b\appbar.image.gallery.png" />
+    <Resource Include="Images\b\appbar.information.circle.png" />
+    <Resource Include="Images\b\appbar.information.png" />
+    <Resource Include="Images\b\appbar.interface.list.png" />
+    <Resource Include="Images\b\appbar.layer.add.png" />
+    <Resource Include="Images\b\appbar.layer.delete.png" />
+    <Resource Include="Images\b\appbar.list.check.png" />
+    <Resource Include="Images\b\appbar.lock.png" />
+    <Resource Include="Images\b\appbar.magnify.png" />
+    <Resource Include="Images\b\appbar.music.png" />
+    <Resource Include="Images\b\appbar.people.profile.png" />
+    <Resource Include="Images\b\appbar.people.status.png" />
+    <Resource Include="Images\b\appbar.power.png" />
+    <Resource Include="Images\b\appbar.question.png" />
+    <Resource Include="Images\b\appbar.social.skype.png" />
+    <Resource Include="Images\b\appbar.tools.png" />
+    <Resource Include="Images\b\appbar.transit.hazard.png" />
+    <Resource Include="Images\b\Lock.jpg" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\RightArrow.png" />
+    <Resource Include="Images\SearchMagnifier.png" />
+    <Resource Include="Images\w\appbar.add.png" />
+    <Resource Include="Images\w\appbar.arrow.right.left.png" />
+    <Resource Include="Images\w\appbar.arrow.right.png" />
+    <Resource Include="Images\w\appbar.calculator.png" />
+    <Resource Include="Images\w\appbar.check.png" />
+    <Resource Include="Images\w\appbar.close.png" />
+    <Resource Include="Images\w\appbar.cog.png" />
+    <Resource Include="Images\w\appbar.cogs.png" />
+    <Resource Include="Images\w\appbar.control.guide.png" />
+    <Resource Include="Images\w\appbar.crop.png" />
+    <Resource Include="Images\w\appbar.customerservice.png" />
+    <Resource Include="Images\w\appbar.delete.png" />
+    <Resource Include="Images\w\appbar.email.outlook.png" />
+    <Resource Include="Images\w\appbar.folder.png" />
+    <Resource Include="Images\w\appbar.group.add.png" />
+    <Resource Include="Images\w\appbar.home.png" />
+    <Resource Include="Images\w\appbar.ie.png" />
+    <Resource Include="Images\w\appbar.image.gallery.png" />
+    <Resource Include="Images\w\appbar.information.circle.png" />
+    <Resource Include="Images\w\appbar.information.png" />
+    <Resource Include="Images\w\appbar.layer.add.png" />
+    <Resource Include="Images\w\appbar.layer.delete.png" />
+    <Resource Include="Images\w\appbar.lock.png" />
+    <Resource Include="Images\w\appbar.magnify.png" />
+    <Resource Include="Images\w\appbar.music.png" />
+    <Resource Include="Images\w\appbar.power.png" />
+    <Resource Include="Images\w\appbar.question.png" />
+    <Resource Include="Images\w\appbar.user.add.png" />
+    <Resource Include="Images\w\appbar.user.delete.png" />
+    <Resource Include="Images\w\appbar.user.png" />
+    <Resource Include="Images\w\LeftArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Style\DatagridStyle1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\DatagridStyle2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Dictionary1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CategoryMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Damage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dashboard7R.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FinalInvoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GenReports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Invoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InvoiceStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Latest\InvoiceDetailsMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Latest\InvoiceDetailsMasterSeparate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LookupMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MenuMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Patch\BulkDeleteInvoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Patch\InvoiceDetailsPatch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Patch\InvoiceProductPatch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Patch\InvoiceSettlementPatch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Patch\InvoicingPatch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Patch\Patch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Patch\SettlementPatch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Product.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Purchase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\CreditNoteReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ProductReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\PurchaseReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\SalesReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\TaxReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\VendorReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScreenLock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Stock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubCategoryMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubLookupMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UploadSheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\User.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Vendor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\03150.png" />
+    <Resource Include="Images\03161.png" />
+    <Resource Include="Images\03244.png" />
+    <Resource Include="Images\1393431542_Close_Box_Red.png" />
+    <Resource Include="Images\1393431613_onebit_34.png" />
+    <Resource Include="Images\1393431837_ok-blue.png" />
+    <Resource Include="Images\1393431973_icon-15.png" />
+    <Resource Include="Images\1393431976_Refresh.png" />
+    <Resource Include="Images\addons.png" />
+    <Resource Include="Images\addtemplate.png" />
+    <Resource Include="Images\appbar.check.png" />
+    <Resource Include="Images\appbar.close.png" />
+    <Resource Include="Images\arrowshapes.left-arrow.png" />
+    <Resource Include="Images\arrowshapes.right-arrow.png" />
+    <Resource Include="Images\arrowshapes.up-arrow.png" />
+    <Resource Include="Images\customerservice.png" />
+    <Resource Include="Images\dbqueryopen.png" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\folders-docs.png" />
+    <Resource Include="Images\folders-open.png" />
+    <Resource Include="Images\folders.png" />
+    <Resource Include="Images\guide.png" />
+    <Resource Include="Images\InfoBox.png" />
+    <Resource Include="Images\managelanguage.png" />
+    <Resource Include="Images\OpenBook.png" />
+    <Resource Include="Images\openurl.png" />
+    <Resource Include="Images\outlook.png" />
+    <Resource Include="Images\page_blank.png" />
+    <Resource Include="Images\page_blank_1.png" />
+    <Resource Include="Images\printpreview.png" />
+    <Resource Include="Images\register.png" />
+    <Resource Include="Images\reports.png" />
+    <Resource Include="Images\right.png" />
+    <Resource Include="Images\save_all-icon.gif" />
+    <Resource Include="Images\selectall.png" />
+    <Resource Include="Images\sendmail.png" />
+    <Resource Include="Images\stock_save-as.png" />
+    <Resource Include="Images\VerySmall.png" />
+    <Resource Include="Images\zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sevenrays.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\images.jpg" />
+    <Resource Include="Images\old_phone_numbers-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DataServiceRef\" />
+    <WCFMetadataStorage Include="Service References\InvoiceServiceRef\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\WiX.3.11.1\build\wix.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WiX.3.11.1\build\wix.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

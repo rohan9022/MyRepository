@@ -1,0 +1,15 @@
+﻿<Window x:Class="IMS.Views.ScreenLock"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ScreenLock"  Background="DarkBlue" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None" PreviewKeyDown="Window_PreviewKeyDown">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <PasswordBox Name="pwdBox" Height="24" Width="150" PasswordChar="*" />
+        <Border>
+            <TextBlock Height="24" Width="40" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="/IMS;component/Images/w/appbar.arrow.right.png"/>
+                </TextBlock.Background>
+            </TextBlock>
+        </Border>
+    </StackPanel>
+</Window>

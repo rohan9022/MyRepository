@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="IMS.Views.BulkDeleteInvoice"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Height="200" Width="300" Style="{StaticResource userCtrlStyle}">
+    <Canvas>
+        <TextBlock Height="24" Width="96" Text="From Invoice No." Canvas.Left="10" Canvas.Top="24"/>
+        <TextBlock Height="24" Width="80" Text="To Invoice No." Canvas.Left="26" Canvas.Top="74"/>
+        <TextBox MaxLength="10" Height="24" Width="80" Canvas.Left="111" Canvas.Top="24" Text="{Binding frmInvoiceNo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox MaxLength="10" Height="24" Width="80" Canvas.Left="111" Canvas.Top="74" Text="{Binding toInvoiceNo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Delete" Height="24" Width="80" Canvas.Left="26" Canvas.Top="117" Command="{Binding cmdDelete}"/>
+        <Button Content="Clear" Height="24" Width="80" Canvas.Left="111" Canvas.Top="117" Command="{Binding cmdClear}"/>
+    </Canvas>
+</UserControl>

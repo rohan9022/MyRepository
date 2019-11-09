@@ -1,0 +1,215 @@
+﻿using IMS.DataServiceRef;
+using IMS.Helper;
+using IMS.Models;
+using IMS.ViewModels;
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Threading;
+
+namespace IMS.Views
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        DataServiceClient pxy;
+        public MainWindow()
+        {
+            InitializeComponent();
+            LayoutRoot.Loaded += LayoutRoot_Loaded;
+            LayoutRoot.Unloaded += LayoutRoot_Unloaded;
+            //Dispatcher.InvokeAsync(new Action(() => DashboardVisibility()), System.Windows.Threading.DispatcherPriority.Background);
+            Global.GlobalPageMode = PageMode.Browse;
+            btnBrowse.Background = new SolidColorBrush(Colors.Blue);
+        }
+
+        void LayoutRoot_Unloaded(object sender, RoutedEventArgs e)
+        {
+            if (pxy != null) pxy.Close();
+            //tmr.IsEnabled = false;
+        }
+
+        void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
+        {
+            NavigationCommands.BrowseBack.InputGestures.Clear();
+            NavigationCommands.BrowseForward.InputGestures.Clear();
+            if (pxy == null) pxy = new DataServiceClient();
+            //if (Global.lstGlobalCustSearch == null) Global.lstGlobalCustSearch = new ObservableCollection<CustomerSearch>();
+            txtUserName.Text = "Welcome, " + Global.UserName + "  ";
+
+            if (Global.UserType == Const.User)
+            {
+                Global.DashBoard = false;
+                //MainRegion.Navigate(new CustomerAdd());
+                MainRegion.Navigate(new Product(Global.GlobalPageMode));
+                return;
+            }
+            MainRegion.Navigate(new Dashboard(MainRegion));
+            //if (!Global.session)
+            //{
+            //    Dispatcher.InvokeAsync(
+            //        new Action(() => getAutoData()), System.Windows.Threading.DispatcherPriority.Background);
+            //}
+        }
+
+        #region BackGroundThread
+        //DispatcherTimer tmr = new DispatcherTimer();
+        //private void getAutoData()
+        //{
+        //    try
+        //    {
+        //        tmr.Start();
+        //        tmr.IsEnabled = true;
+        //        tmr.Tick += tmr_Tick;
+        //    }
+        //    catch
+        //    {
+        //        return;
+        //    }
+        //}
+
+        //int Day = 0;
+
+        //private void tmr_Tick(object sender, EventArgs e)
+        //{
+        //    ++Day;
+        //    ObservableCollection<CustomerSearch> lstTemp = new ObservableCollection<CustomerSearch>();
+        //    lstTemp = pxy.SearchRange(Day);
+
+        //    if (lstTemp.Count > 0)
+        //    {
+        //        foreach (CustomerSearch item in lstTemp)
+        //        {
+        //            Global.lstGlobalCustSearch.Add(item);
+        //        }
+        //    }
+        //    else if (Global.firstTime)
+        //    {
+        //        Global.firstTime = false;
+        //    }
+        //    if (Day > 45)
+        //    {
+        //        Global.dataLoaded = true;
+        //        tmr.IsEnabled = false;
+        //    }
+        //    tmr.Interval = new TimeSpan(Const.IntervalTime);
+        //}
+
+
+        //DispatcherTimer tmrDashBd = new DispatcherTimer();
+        //private void DashboardVisibility()
+        //{
+        //    try
+        //    {
+        //        tmrDashBd.Start();
+        //        tmrDashBd.IsEnabled = true;
+        //        tmrDashBd.Tick += tmrDashBd_Tick;
+        //    }
+        //    catch
+        //    {
+        //        return;
+        //    }
+        //}
+
+        //void tmrDashBd_Tick(object sender, EventArgs e)
+        //{
+        //    if (Global.DashBoard)
+        //    {
+        //        dashboardStackpanel.HorizontalAlignment = HorizontalAlignment.Center;
+        //        dashboardStackpanel.VerticalAlignment = VerticalAlignment.Center;
+        //        MainRegion.HorizontalAlignment = HorizontalAlignment.Center;
+        //        MainRegion.VerticalAlignment = VerticalAlignment.Center;
+        //        gridDashboard.Visibility = Visibility.Collapsed;
+        //    }
+        //    else
+        //    {
+        //        dashboardStackpanel.HorizontalAlignment = HorizontalAlignment.Left;
+        //        dashboardStackpanel.VerticalAlignment = VerticalAlignment.Top;
+        //        MainRegion.HorizontalAlignment = HorizontalAlignment.Center;
+        //        MainRegion.VerticalAlignment = VerticalAlignment.Top;
+        //        gridDashboard.Visibility = Visibility.Visible;
+        //    }
+        //    tmrDashBd.Interval = new TimeSpan(1);
+        //}
+
+        #endregion
+
+        private void PART_TITLEBAR_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void PART_CLOSE_Click(object sender, RoutedEventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
+
+        private void PART_MAXIMIZE_RESTORE_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == System.Windows.WindowState.Normal)
+            {
+                this.WindowState = System.Windows.WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = System.Windows.WindowState.Normal;
+            }
+        }
+
+        private void PART_MINIMIZE_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void img_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Image img = sender as Image;
+            Helper.Helper.WindowNavigation(System.Convert.ToInt32(img.Tag), MainRegion);
+        }
+
+        private void imgLogout_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult mresult = Xceed.Wpf.Toolkit.MessageBox.Show("Do you want to Logout?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (mresult == MessageBoxResult.Yes)
+            {
+                var login = new Login();
+                var loginVM = new LoginViewModel();
+                loginVM.LoginCompleted += (sender1, e1) =>
+                {
+                    //HomeWindow main = new HomeWindow();
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    login.Close();
+                };
+                login.DataContext = loginVM;
+                this.Close();
+                login.ShowDialog();
+                //Global.session = true;
+            }
+        }
+
+        private void Change_Mode(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Button obj = sender as Button;
+                if (Global.GlobalPageMode == System.Convert.ToInt32(obj.Tag)) return;
+                Global.GlobalPageMode = System.Convert.ToInt32(obj.Tag);
+                btnBrowse.Background = btnAdd.Background = btnModify.Background = btnDelete.Background = new SolidColorBrush(Colors.White);
+                if (Global.GlobalPageMode == PageMode.Browse) btnBrowse.Background = new SolidColorBrush(Colors.Blue);
+                if (Global.GlobalPageMode == PageMode.Add) btnAdd.Background = new SolidColorBrush(Colors.Blue);
+                if (Global.GlobalPageMode == PageMode.Modify) btnModify.Background = new SolidColorBrush(Colors.Blue);
+                if (Global.GlobalPageMode == PageMode.Delete) btnDelete.Background = new SolidColorBrush(Colors.Blue);
+                Helper.Helper.WindowNavigation(Global.GlobalNavigationValue, MainRegion);
+            }
+            catch
+            {
+                return;
+            }
+        }
+    }
+}

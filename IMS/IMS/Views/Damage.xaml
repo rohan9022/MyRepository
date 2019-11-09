@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="IMS.Views.Damage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+             xmlns:cv="clr-namespace:IMS.Helper"
+             Height="425" Width="750" Style="{StaticResource userCtrlStyle}">
+    <Canvas>
+        <TextBlock Text="Date" Canvas.Left="212" Canvas.Top="32"/>
+        <TextBlock Text="Product" Canvas.Left="464" Canvas.Top="32" Width="42"/>
+        <Canvas Height="24" Canvas.Left="22" Canvas.Top="28" Width="669" IsEnabled="{Binding Pk}">
+            <ComboBox Height="24" Width="159" ItemsSource="{Binding lstSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Desc" SelectedValue="{Binding searchMode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="ID"/>
+            <xctk:DateTimePicker FormatString="dd/MM/yyyy" Value="{Binding Path=searchDate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Width="175" Canvas.Left="223"/>
+            <ComboBox Width="175" Height="24" Canvas.Left="494" ItemsSource="{Binding lstProduct}" SelectedValue="{Binding searchProduct}" SelectedValuePath="ID" IsEditable="True">
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="DisplayMemberPath" Value="ID"/>
+                        <Setter Property="ItemTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding ID}"/>
+                                        <TextBlock VerticalAlignment="Top" Text=" - "/>
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding Name}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ComboBox.Style>
+                <!--<ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Text="{Binding ID}"/>
+                            <TextBlock VerticalAlignment="Top" Text=" - "/>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>-->
+            </ComboBox>
+
+        </Canvas>
+
+        <Button Canvas.Left="705" Height="24" Width="34" Command="{Binding cmdSearch}" Canvas.Top="28">
+            <Button.Background>
+                <ImageBrush ImageSource="/IMS;component/Images/SearchMagnifier.png"/>
+            </Button.Background>
+        </Button>
+        <TextBlock Text="Product" Canvas.Left="458" Canvas.Top="137"/>
+        <TextBlock Text="Date" Visibility="{Binding Pk}" Canvas.Top="102" Canvas.Left="474"/>
+        <TextBlock Text="Quantity" Canvas.Top="172" Canvas.Left="453"/>
+        <TextBlock Text="Price" Canvas.Left="473" Canvas.Top="210"/>
+        <Canvas Height="225" Canvas.Left="515" Canvas.Top="98" Width="175" IsEnabled="{Binding Ck}">
+            <ComboBox Width="175" Height="24" ItemsSource="{Binding lstProduct}" SelectedValue="{Binding ProductID}" SelectedValuePath="ID" DisplayMemberPath="Name" IsEditable="True" IsEnabled="{Binding prd}" Canvas.Top="35">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding cmdBrowse}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+            <xctk:DateTimePicker FormatString="dd/MM/yyyy" Width="175" Value="{Binding DamagedDate, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+            <TextBox Width="175" Height="24" Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Canvas.Top="70"/>
+            <TextBox Width="175" Height="24" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Canvas.Top="108"/>
+            <TextBox Width="175" Height="79" Text="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Canvas.Top="146"/>
+        </Canvas>
+        <Button Height="24" Width="80" Content="{Binding modeContent}" Command="{Binding cmdSave}" Canvas.Top="338" Canvas.Left="525"/>
+        <Button Height="24" Width="80" Content="Clear" Command="{Binding cmdClear}" Canvas.Top="338" Canvas.Left="610"/>
+        <DataGrid Style="{StaticResource DataGridStyle}" Width="385" Height="264" ItemsSource="{Binding lstDamaged, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" CanUserAddRows="False" Canvas.Top="98" SelectedIndex="{Binding dgSelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="22">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding cmdDamagedDetails}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=DamageDate,StringFormat='{}{0:dd/MM/yyyy}'}" Header="Date" MinWidth="100" IsReadOnly="True"/>
+                <DataGridComboBoxColumn Header="Product" SelectedValueBinding="{Binding ProductID}" MinWidth="275" IsReadOnly="True">
+                    <DataGridComboBoxColumn.ElementStyle>
+                        <Style TargetType="{x:Type ComboBox}">
+                            <Setter Property="ItemsSource" Value="{Binding DataContext.lstProduct, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
+                            <Setter Property="DisplayMemberPath" Value="Name"/>
+                            <Setter Property="SelectedValuePath" Value="ID"/>
+                            <Setter Property="ItemTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock VerticalAlignment="Center" Text="{Binding ID}"/>
+                                            <TextBlock VerticalAlignment="Top" Text=" - "/>
+                                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGridComboBoxColumn.ElementStyle>
+                    <DataGridComboBoxColumn.EditingElementStyle>
+                        <Style TargetType="{x:Type ComboBox}">
+                            <Setter Property="ItemsSource" Value="{Binding DataContext.lstProduct, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
+                            <Setter Property="DisplayMemberPath" Value="Name"/>
+                            <Setter Property="SelectedValuePath" Value="ID"/>
+                            <Setter Property="ItemTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock VerticalAlignment="Center" Text="{Binding ID}"/>
+                                            <TextBlock VerticalAlignment="Top" Text=" - "/>
+                                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGridComboBoxColumn.EditingElementStyle>
+                </DataGridComboBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Text="Comment" Canvas.Left="448" Canvas.Top="248"/>
+    </Canvas>
+</UserControl>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="86e284f8-08d5-4341-aabf-35bd3d25f135" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://imsservice20191106112917.azurewebsites.net/Services/InvoiceService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InvoiceService1.wsdl" MetadataType="Wsdl" ID="4ba1cf96-1685-43ba-882c-b6527c79d966" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/InvoiceService.svc?wsdl" />
+    <MetadataFile FileName="InvoiceService1.disco" MetadataType="Disco" ID="15e8c5b3-f68b-4f8d-93bc-d0f9f8623b2a" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/InvoiceService.svc?disco" />
+    <MetadataFile FileName="InvoiceService5.xsd" MetadataType="Schema" ID="1cc02607-77cc-450e-9191-b6711783af43" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/InvoiceService.svc?xsd=xsd2" />
+    <MetadataFile FileName="InvoiceService51.xsd" MetadataType="Schema" ID="3d8de68e-f629-4a9a-b4a8-7e0a86c3bb26" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/InvoiceService.svc?xsd=xsd0" />
+    <MetadataFile FileName="InvoiceService52.xsd" MetadataType="Schema" ID="2c809082-0e39-45c5-a0af-5d28284e895b" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/InvoiceService.svc?xsd=xsd1" />
+    <MetadataFile FileName="InvoiceService53.xsd" MetadataType="Schema" ID="ab7a23ca-9ea1-46e8-8b4e-309488458b65" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/InvoiceService.svc?xsd=xsd3" />
+    <MetadataFile FileName="InvoiceService54.xsd" MetadataType="Schema" ID="96088838-1d1b-48dc-88d8-009339b386c0" SourceId="1" SourceUrl="https://imsservice20191106112917.azurewebsites.net/Services/InvoiceService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,176 @@
+﻿<UserControl x:Class="IMS.Views.Dashboard7R"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="980" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource userCtrlStyle}">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style TargetType="{x:Type StackPanel}">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Width" Value="175"/>
+                <Setter Property="Height" Value="90"/>
+                <Setter Property="Background" Value="#FF4F81BD"/>
+            </Style>
+            <Storyboard x:Key="expandStoryboard">
+                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.2" Duration="0:0:0.1" />
+                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.2" Duration="0:0:0.1" />
+            </Storyboard>
+            <Storyboard x:Key="shrinkStoryboard">
+                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:0.1" />
+                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:0.1" />
+            </Storyboard>
+            <Style TargetType="{x:Type Image}">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Width" Value="175"/>
+                <Setter Property="Height" Value="70"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <!--<SkewTransform AngleX="0" AngleY="0"/>-->
+                        <ScaleTransform CenterX="25" CenterY="25" ScaleX="1" ScaleY="1" />
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Trigger.EnterActions>
+                            <BeginStoryboard Storyboard="{StaticResource expandStoryboard}"/>
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <BeginStoryboard Storyboard="{StaticResource shrinkStoryboard}"/>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+        <UniformGrid Rows="5" Columns="1"  HorizontalAlignment="Center" Height="550" Width="190" Grid.Column="0">
+            <UniformGrid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Width" Value="175"/>
+                    <Setter Property="Height" Value="90"/>
+                    <Setter Property="Background" Value="#FF4F81BD"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </UniformGrid.Resources>
+            <TextBlock Text="UPLOADING"/>
+            <TextBlock Text="MASTER"/>
+            <TextBlock Text="REPORTS"/>
+            <TextBlock Text="PURCHASE &amp; SALE"/>
+            <TextBlock Text="TOOLS"/>
+        </UniformGrid>
+        <UniformGrid Rows="5" Columns="4" Height="550" Width="780" HorizontalAlignment="Right" VerticalAlignment="Center" FirstColumn="2" Grid.Column="1">
+            <UniformGrid.Resources>
+                <Style TargetType="{x:Type Button}" BasedOn="{x:Null}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Width" Value="175"/>
+                    <Setter Property="Height" Value="90"/>
+                    <Setter Property="Background" Value="#FF4F81BD"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <EventSetter Event="MouseLeftButtonDown" Handler="img_MouseLeftButtonDown"/>
+                </Style>
+            </UniformGrid.Resources>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/IMS;component/Images/w/appbar.home.png" ToolTip="Home" Width="80" x:Name="imgHome" Tag="1" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <Border Width="15" Background="White"/>
+                <Image Source="/IMS;component/Images/b/appbar.lock.png" ToolTip="Screen Lock" Width="80" x:Name="imgLock" Tag="7" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="/IMS;component/Images/w/appbar.control.guide.png" ToolTip="User Master" Tag="11" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="User Master" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <!--<Image Source="/IMS;component/Images/b/appbar.group.add.png" ToolTip="Add User" x:Name="imgAddUser" Tag="12" MouseLeftButtonDown="img_MouseLeftButtonDown"/>-->
+                <!--<TextBlock Text="Vendor Master" HorizontalAlignment="Center"/>-->
+                <Button Tag="14" Height="40">
+                    <Button.Content>Company Master</Button.Content>
+                </Button>
+                <Border Height="10" Background="White"/>
+                <Button Tag="12" Height="40">
+                    <Button.Content>Vendor Master</Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <!--<Image Source="/IMS;component/Images/w/appbar.layer.add.png" ToolTip="Sheet Uploading" x:Name="imgUploadSheet" Tag="14" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="Product Master" HorizontalAlignment="Center"/>-->
+                <Button Tag="14">
+                    <Button.Content>Product Master</Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <!--<Image Source="/IMS;component/Images/b/appbar.layer.delete.png" ToolTip="User" Tag="18" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="Purchase Master" HorizontalAlignment="Center"/>-->
+                <Button Tag="18">
+                    <Button.Content>Purchase Master</Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <!--<Image Source="/IMS;component/Images/w/appbar.image.gallery.png" ToolTip="Vendor" Tag="19" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="DamagedGoods Master" HorizontalAlignment="Center"/>-->
+                <Button Tag="19">
+                    <Button.Content>DamagedGoods Master</Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="/IMS;component/Images/w/appbar.magnify.png" ToolTip="Invoice" Tag="21" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="Invoice Master" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/IMS;component/Images/b/appbar.people.status.png" Width="80" ToolTip="Invoicing" Tag="91" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <Border Width="15" Background="White"/>
+                <Image Source="/IMS;component/Images/w/appbar.customerservice.png" Width="80" ToolTip="Statuswise Invoice Report" Tag="92" MouseLeftButtonDown="img_MouseLeftButtonDown" Margin="0,0,0,10" VerticalAlignment="Bottom"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="/IMS;component/Images/b/appbar.list.check.png" ToolTip="Upload Sheet" Tag="22" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="UploadSheet" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="/IMS;component/Images/w/appbar.folder.png" ToolTip="Company Master" Tag="23" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="Company Master" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="/IMS;component/Images/b/appbar.tools.png" ToolTip="Lookup" Tag="94" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="Stock Report" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/IMS;component/Images/b/appbar.tools.png" Width="80" ToolTip="Lookup Master" Tag="16" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <Border Width="15" Background="White"/>
+                <Image Source="/IMS;component/Images/w/appbar.arrow.right.left.png" Width="80" ToolTip="SubLookup Master" Tag="17" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="/IMS;component/Images/b/appbar.check.png" ToolTip="Sales Master" Tag="15" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="Sales Master" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="/IMS;component/Images/w/appbar.information.png" ToolTip="Final Invoice Report" Tag="93" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <TextBlock Text="Final Invoice Report" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="/IMS;component/Images/w/appbar.information.png" ToolTip="About" Tag="3" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/IMS;component/Images/b/appbar.people.status.png" Width="80" ToolTip="Category" Tag="24" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+                <Border Width="15" Background="White"/>
+                <Image Source="/IMS;component/Images/w/appbar.customerservice.png" Width="80" ToolTip="SubCategory" Tag="25" MouseLeftButtonDown="img_MouseLeftButtonDown" Margin="0,0,0,10" VerticalAlignment="Bottom"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="/IMS;component/Images/b/appbar.close.png" ToolTip="Exit" x:Name="imgExit" Tag="5" MouseLeftButtonDown="img_MouseLeftButtonDown"/>
+            </StackPanel>
+        </UniformGrid>
+    </Grid>
+</UserControl>
+

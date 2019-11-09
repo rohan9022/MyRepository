@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="IMS.Views.User"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:pwd="clr-namespace:IMSLibrary.UI;assembly=IMSLibrary"
+             xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d"
+             Height="700" Width="1000" BorderBrush="AliceBlue" Style="{StaticResource userCtrlStyle}">
+
+    <Grid x:Name="LayoutRoot" HorizontalAlignment="Center">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="232"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="230"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="txtUser" Text="User" Grid.Row="1" Grid.Column="0"/>
+        <ComboBox x:Name="cmbUser" Grid.Row="1" Grid.Column="1" Margin="5,12,0,12" HorizontalAlignment="Left" ItemsSource="{Binding lstUser}" SelectedValue="{Binding UserID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" SelectedValuePath="UserID" DisplayMemberPath="UserName" TabIndex="0" Width="120">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding cmdUserDetails}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ComboBox>
+
+        <TextBlock Text="First Name" Grid.Row="2" Grid.Column="0"/>
+        <TextBox x:Name="txtFirstName" Grid.Row="2" Grid.Column="1" Text="{Binding FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" TabIndex="1" Margin="5,13,0,13"/>
+
+
+        <TextBlock Text="Middle Name" Grid.Row="2" Grid.Column="2" Margin="0,17"/>
+        <TextBox x:Name="txtMiddleName" Grid.Row="2" Grid.Column="3" Text="{Binding MiddleName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" TabIndex="2" Margin="5,13,0,13"/>
+
+
+        <TextBlock Text="Last Name" Grid.Row="2" Grid.Column="4" Margin="0,17"/>
+        <TextBox x:Name="txtSurname" Grid.Row="2" Grid.Column="5" Text="{Binding LastName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" TabIndex="3" Margin="5,13,0,13"/>
+
+
+        <TextBlock Text="Gender" Grid.Row="3" Grid.Column="0" Margin="0,17"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" Width="120" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,12,0,12" ItemsSource="{Binding lstGender}" SelectedValue="{Binding Gender,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" SelectedValuePath="ID" DisplayMemberPath="Name" TabIndex="4"/>
+
+        <TextBlock Text="Date of Birth" Grid.Row="3" Grid.Column="2"/>
+        <extToolkit:DateTimePicker Format="Custom" ShowButtonSpinner="False" FormatString="dd/MM/yyyy" x:Name="dtDateOfBirth" Value="{Binding DateOfBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24" TabIndex="6" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" Margin="5,13,100,14" />
+
+
+        <TextBlock Text="Contact Numer" Grid.Row="3" Grid.Column="4" Margin="0,17"/>
+        <TextBox x:Name="txtContactNumber" Grid.Row="3" Grid.Column="5" Text="{Binding ContactNo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" TabIndex="7" Margin="5,13,0,13" MaxLength="10"/>
+
+
+        <TextBlock Text="User Type" Grid.Row="4" Grid.Column="0"/>
+        <ComboBox x:Name="cmbType" Grid.Row="4" Grid.Column="1" Width="120" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,12,0,12" ItemsSource="{Binding lstUserType}" SelectedValue="{Binding UserType,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" SelectedValuePath="ID" DisplayMemberPath="Name" TabIndex="8"/>
+        <TextBlock Text="User Name" Grid.Row="4" Grid.Column="2" Margin="0,17"/>
+        <TextBox x:Name="txtUserName" Grid.Row="4" Grid.Column="3" Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" TabIndex="9" Margin="5,13,0,13"/>
+
+
+        <TextBlock x:Name="txtChkUsrNamAvablty" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Left"/>
+
+        <TextBlock x:Name="tbPassword" Text="Password" Grid.Row="5" Grid.Column="0" Margin="0,17"/>
+        <PasswordBox x:Name="txtPassword" Grid.Row="5" Grid.Column="1" PasswordChar="*" pwd:PasswordHelper.Password="{Binding UserPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="5,12,0,12" TabIndex="10"/>
+        <TextBlock x:Name="tbConfPassword" Text="Confirm Password" Grid.Row="5" Grid.Column="2" Margin="0,17"/>
+        <PasswordBox x:Name="txtConfirmPassword" Grid.Row="5" Grid.Column="3" PasswordChar="*" pwd:PasswordHelper.Password="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="5,12,0,12" TabIndex="11"/>
+        
+        <Button Grid.Row="6" Content="{Binding modeContent}" Grid.Column="4" Width="80" Height="24" HorizontalAlignment="Right" TabIndex="12" Margin="0,13" Command="{Binding cmdUser}"/>
+        <Button Grid.Row="6" Content="Cancel" Grid.Column="5" Width="80" Height="24" HorizontalAlignment="Left" TabIndex="13" Margin="0,13"/>
+    </Grid>
+</UserControl>

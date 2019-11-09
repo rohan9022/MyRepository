@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="IMS.Views.FinalInvoice"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xc="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Height="825" Width="900" Style="{StaticResource userCtrlStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Canvas>
+        <TextBlock Text="From Invoice No" Canvas.Top="5" Canvas.Left="39"/>
+        <TextBlock Text="To Invoice No" Canvas.Top="5" Canvas.Left="173"/>
+        <TextBlock Text="From Invoice Date" Canvas.Top="5" Canvas.Left="285"/>
+        <TextBlock Text="To Invoice Date" Canvas.Top="5" Canvas.Left="416"/>
+        <TextBox Canvas.Top="27" Canvas.Left="25" Width="120" Text="{Binding fromInvoiceNo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Canvas.Top="27" Canvas.Left="150" Width="120" Text="{Binding toInvoiceNo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <xc:DateTimePicker FormatString="dd/MM/yyyy" Canvas.Top="26" Canvas.Left="275" Width="120" Value="{Binding fromInvoiceDate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}"/>
+        <xc:DateTimePicker FormatString="dd/MM/yyyy" Canvas.Top="26" Canvas.Left="400" Width="120" Value="{Binding toInvoiceDate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}"/>
+        <Button Width="80" Height="24" Content="View" Canvas.Left="795" Canvas.Top="27" Command="{Binding cmdView}"/>
+        <ContentPresenter Canvas.Top="56" HorizontalAlignment="Center" Height="753" Width="850" Canvas.Left="25" Content="{Binding Viewer,UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Canvas.Top="27" Canvas.Left="525" Width="265" Text="{Binding folderPath,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+        <Button Width="80" Height="24" Content="Blank Date" Canvas.Left="525" Canvas.Top="0" Command="{Binding cmdBlankDate}"/>
+    </Canvas>
+</UserControl>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define IMS_TargetDir=$(var.IMS.TargetDir)?>
+  <Product Id="912EE16B-1E51-4451-BFAE-C7587DF1EA55" Name="IMS" Language="1033" Version="1.0.0.0" Manufacturer="ROHAN" UpgradeCode="85ca1ba6-9e80-4fcc-b703-0b3064f34e26">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <!--<Icon Id="icon.ico" SourceFile="$(var.ProjectDir)Icon.PNG"/>-->
+    <!--<Property Id="APPPRODUCTION" Value="icon.ico"/>-->
+
+    <!--<WixVariable Id="WixUIBannerBmp" Value="Images\imagename1.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="Images\imagename2.bmp"/>
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\license.rtf"/>-->
+
+    <!--<UIRef Id="WixUI_Minimal"/>-->
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_InstallDir" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="IMS" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+      <ComponentGroupRef Id="Views_Reports_files" />
+    </Feature>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="IMS">
+          <Directory Id="Views" Name="Views">
+            <Directory Id="Views_Reports" Name="Reports" />
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="IMS" />
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="25C05B63-2394-4C44-BB62-3CB391E573AD">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="IMS" Description="IMS Description" Target="[INSTALLFOLDER]" WorkingDirectory="APPLICATIONROOTDIRECTORY" />
+        <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\IMS" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ApplicationShortcutDesktop" Guid="A7288800-F698-482B-83D9-B54101A0873F">
+        <Shortcut Id="ApplicationDesktopShortcut" Name="IMS" Description="IMS Description" Target="[INSTALLFOLDER]" WorkingDirectory="APPLICATIONROOTDIRECTORY" />
+        <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\Test Application" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+      <!-- <Component Id="ProductComponent"> -->
+      <!-- TODO: Insert files, registry keys, and other resources here. -->
+      <!-- </Component> -->
+      <Component Id="IMS.exe" Guid="3d75a43d-21e2-48a4-900c-4700c02144fb">
+        <File Id="IMS.exe" Name="IMS.exe" Source="$(var.IMS_TargetDir)IMS.exe" />
+      </Component>
+      <Component Id="IMSLibrary.dll" Guid="d37eeab1-67a0-4221-9172-f645ad949969">
+        <File Id="IMSLibrary.dll" Name="IMSLibrary.dll" Source="$(var.IMS_TargetDir)IMSLibrary.dll" />
+      </Component>
+      <Component Id="IMS.exe.config" Guid="c3520792-dbdb-47fd-bb60-1ebb37fa647c">
+        <File Id="IMS.exe.config" Name="IMS.exe.config" Source="$(var.IMS_TargetDir)IMS.exe.config" />
+      </Component>
+      <Component Id="System.Windows.Controls.DataVisualization.Toolkit.dll" Guid="d98cd17b-8c1c-45f5-8814-e15f2ce4b07c">
+        <File Id="System.Windows.Controls.DataVisualization.Toolkit.dll" Name="System.Windows.Controls.DataVisualization.Toolkit.dll" Source="$(var.IMS_TargetDir)System.Windows.Controls.DataVisualization.Toolkit.dll" />
+      </Component>
+      <Component Id="System.Windows.Controls.Input.Toolkit.dll" Guid="5bcf7843-0e72-4cab-9995-a4c2d4e380ef">
+        <File Id="System.Windows.Controls.Input.Toolkit.dll" Name="System.Windows.Controls.Input.Toolkit.dll" Source="$(var.IMS_TargetDir)System.Windows.Controls.Input.Toolkit.dll" />
+      </Component>
+      <Component Id="System.Windows.Interactivity.dll" Guid="0df53f4c-32f2-4da1-8b58-6559986e6e40">
+        <File Id="System.Windows.Interactivity.dll" Name="System.Windows.Interactivity.dll" Source="$(var.IMS_TargetDir)System.Windows.Interactivity.dll" />
+      </Component>
+      <Component Id="WPFToolkit.dll" Guid="0862b098-0a57-433c-b6e8-0cbc84c57e45">
+        <File Id="WPFToolkit.dll" Name="WPFToolkit.dll" Source="$(var.IMS_TargetDir)WPFToolkit.dll" />
+      </Component>
+      <Component Id="WPFToolkit.Extended.dll" Guid="8355deb9-ce9a-429e-9343-6e6004662a5d">
+        <File Id="WPFToolkit.Extended.dll" Name="WPFToolkit.Extended.dll" Source="$(var.IMS_TargetDir)WPFToolkit.Extended.dll" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="Views_Reports_files" Directory="Views_Reports">
+      <Component Id="Views_Reports_I0001_CSGST.rdlc" Guid="1f7196ea-fb37-4fe7-ba27-b779b46f0e62">
+        <File Id="Views_Reports_I0001_CSGST.rdlc" Name="I0001_CSGST.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\I0001_CSGST.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_I0003_CSGST.rdlc" Guid="9ec4233e-b889-4cf4-b53c-0d53b96ba938">
+        <File Id="Views_Reports_I0003_CSGST.rdlc" Name="I0003_CSGST.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\I0003_CSGST.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_I0001_IGST.rdlc" Guid="77baa468-0891-4718-bd38-3d2c568daf06">
+        <File Id="Views_Reports_I0001_IGST.rdlc" Name="I0001_IGST.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\I0001_IGST.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_I0003_IGST.rdlc" Guid="b66c9c82-87dc-4342-890d-1dcc9a18a9aa">
+        <File Id="Views_Reports_I0003_IGST.rdlc" Name="I0003_IGST.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\I0003_IGST.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_I0006_IGST.rdlc" Guid="5911e47d-b5fc-497d-abb8-0bb622071be7">
+        <File Id="Views_Reports_I0006_IGST.rdlc" Name="I0006_IGST.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\I0006_IGST.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_I0006_CSGST.rdlc" Guid="2e9ccfe0-f1ce-4afa-acc6-98685e4db037">
+        <File Id="Views_Reports_I0006_CSGST.rdlc" Name="I0006_CSGST.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\I0006_CSGST.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_InvoiceDetailsPatch.rdlc" Guid="bd4ae150-9b61-4937-9425-2fd973d1fb05">
+        <File Id="Views_Reports_InvoiceDetailsPatch.rdlc" Name="InvoiceDetailsPatch.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\InvoiceDetailsPatch.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_InvoiceProductPatch.rdlc" Guid="39c38774-2e8f-478e-8d44-533ba76018ef">
+        <File Id="Views_Reports_InvoiceProductPatch.rdlc" Name="InvoiceProductPatch.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\InvoiceProductPatch.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_InvoiceSettlementPatch.rdlc" Guid="a69d77fd-ef52-45ac-a98c-7dfd0b35ea55">
+        <File Id="Views_Reports_InvoiceSettlementPatch.rdlc" Name="InvoiceSettlementPatch.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\InvoiceSettlementPatch.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_I0005.rdlc" Guid="5735ec4f-81ee-4b27-881b-8dc5a51a6cbf">
+        <File Id="Views_Reports_I0005.rdlc" Name="I0005.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\I0005.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_I0004.rdlc" Guid="74baf268-5a6e-4499-98cc-460b22c70687">
+        <File Id="Views_Reports_I0004.rdlc" Name="I0004.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\I0004.rdlc" />
+      </Component>
+      <Component Id="Views_Reports_I0002.rdlc" Guid="9bdf5b6a-a386-4763-aeb6-759a2269db6d">
+        <File Id="Views_Reports_I0002.rdlc" Name="I0002.rdlc" Source="$(var.IMS_TargetDir)Views\Reports\I0002.rdlc" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

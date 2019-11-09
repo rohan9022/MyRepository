@@ -1,0 +1,35 @@
+﻿<Window x:Class="IMS.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pwd="clr-namespace:IMSLibrary.UI;assembly=IMSLibrary"
+        Title="Login" Height="300" Width="450" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Icon="/IMS;component/Images/Icon.png" PreviewKeyDown="Window_PreviewKeyDown"
+        Background="White" AllowsTransparency="False" Style="{StaticResource windowStyle}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"></ColumnDefinition>
+            <ColumnDefinition Width="90*"></ColumnDefinition>
+            <ColumnDefinition Width="60*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="tbUserName" Text="User Name" Grid.Row="2" Grid.Column="0" FontSize="14px" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBox x:Name="txtUserName" Grid.Row="2" Grid.Column="1" Width="170" TabIndex="0" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,13,0,12" Text="{Binding userName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"/>
+        <TextBlock x:Name="tbPassword" Text="Password" Grid.Column="0" Grid.Row="3" FontSize="14px" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <PasswordBox x:Name="pbPassword" Grid.Row="3" Grid.Column="1" Width="170" TabIndex="1" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,13,0,12" pwd:PasswordHelper.Password="{Binding password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" PasswordChar="*"/>
+        <TextBlock Text="Theme" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14px"/>
+        <ComboBox Grid.Column="1" Grid.Row="4" TabIndex="2" Height="24" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,13,0,12" x:Name="cmbTheme">
+            <ComboBoxItem Tag="1" Content="Classic" IsSelected="True"/>
+            <ComboBoxItem Tag="2" Content="Metro"/>
+        </ComboBox>
+        <Button x:Name="btnLogin" Content="Login" Grid.Row="5" Grid.Column="1" TabIndex="3"  Height="26" Width="80"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,12,0,11" Command="{Binding cmdLogin}" CommandParameter="{Binding ElementName=cmbTheme,Path=SelectedItem}" IsDefault="True"/>
+        <Button x:Name="btnCancel" Content="Cancel"  Grid.Row="5" Grid.Column="1" TabIndex="3"  Height="26" Width="80" Margin="0,12,10,11" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding cmdCancel}"/>
+        <Image Name="imgLogo" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="/IMS;component/Images/Icon.PNG" Stretch="Fill"/>
+    </Grid>
+</Window>

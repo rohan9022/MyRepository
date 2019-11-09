@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="IMS.Views.TaxReport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"  
+             Height="700" Width="900">
+    <Canvas>
+        <ComboBox Height="24" Width="150" ItemsSource="{Binding lstVendor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Name" SelectedValue="{Binding VendorID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="ID" Canvas.Top="30" Canvas.Left="343"/>
+        <xctk:DateTimePicker FormatString="dd/MM/yyyy" Value="{Binding fromInvoiceDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="125" Canvas.Left="10" Canvas.Top="30" Background="Gray"/>
+        <TextBlock Text="Vendor" Canvas.Left="403" Canvas.Top="9"/>
+        <TextBlock Text="From Date" Canvas.Left="33" Canvas.Top="9"/>
+        <TextBlock Text="To Date" Canvas.Left="201" Canvas.Top="9"/>
+        <xctk:DateTimePicker FormatString="dd/MM/yyyy" Value="{Binding toInvoiceDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="125" Canvas.Left="172" Canvas.Top="30" Background="Gray"/>
+        <Button Canvas.Left="525" Height="24" Width="34" Command="{Binding cmdView}" Canvas.Top="28">
+            <Button.Background>
+                <ImageBrush ImageSource="/IMS;component/Images/SearchMagnifier.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Month" Width="54" Canvas.Left="577" Canvas.Top="30" Height="22" Command="{Binding cmdMonth}"/>
+        <Button Content="Vendor" Width="54" Canvas.Left="636" Canvas.Top="30" Height="22" Command="{Binding cmdVendor}"/>
+        <ContentPresenter Canvas.Top="69" HorizontalAlignment="Center" Height="607" Width="850" Canvas.Left="26" Content="{Binding Viewer,UpdateSourceTrigger=PropertyChanged}"/>
+    </Canvas>
+</UserControl>

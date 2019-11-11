@@ -135,22 +135,22 @@ namespace TestProject
                 }
             }
 
-            //InvoiceServiceTest();
-            //Note: DateTime object
-            //.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture);
+            // //InvoiceServiceTest();
+            // //Note: DateTime object
+            // //.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture);
 
-            //Step-1
-            //CreditNotePatch crPatch = new CreditNotePatch();
-            //crPatch.UpdateCrNote();
-            //crPatch.DeleteDuplicateCrNote();
+            // //Step-1
+            // //CreditNotePatch crPatch = new CreditNotePatch();
+            // //crPatch.UpdateCrNote();
+            // //crPatch.DeleteDuplicateCrNote();
 
-            //Step-2
-            //InvoicePatch obj = new InvoicePatch();
-            //obj.UpdateInvoice();
+            // //Step-2
+            // //InvoicePatch obj = new InvoicePatch();
+            // //obj.UpdateInvoice();
 
-            //Step-3
-            //DuplicateInvoiceProductPatch obj1 = new DuplicateInvoiceProductPatch();
-            //obj1.UpdateInvoiceProductMasterStatus();
+            // //Step-3
+            // //DuplicateInvoiceProductPatch obj1 = new DuplicateInvoiceProductPatch();
+            // //obj1.UpdateInvoiceProductMasterStatus();
 
             return;
 

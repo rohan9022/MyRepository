@@ -154,16 +154,16 @@ namespace TestProject
 
             return;
 
-            //IDemo a = new Demo();
-            //a.Print();
+            // //IDemo a = new Demo();
+            // //a.Print();
 
-            //Abc ob = new Abc();
-            //ob.A();
-            //return;
+            // //Abc ob = new Abc();
+            // //ob.A();
+            // //return;
 
-            //Console.WriteLine("A" + "\r\n" + "A");
+            // //Console.WriteLine("A" + "\r\n" + "A");
 
-            //Console.WriteLine(DecimalToWords(325.46M));
+            // //Console.WriteLine(DecimalToWords(325.46M));
 
             int UserID = 3;
             string FilePath = @"D:\DONT DELETE\Desktop\Invoietoday\invoice (188).xlsx";//Invoicing feed.xlsx";

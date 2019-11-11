@@ -17,68 +17,68 @@ namespace TestProject
     //                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDataService"
     //                contract="DataServiceRef.IDataService" name="BasicHttpBinding_IDataService" />
 
-    //class Program
-    //{
-    //    static void Main(string[] args)
-    //    {
-    //        string val1 = "151";
-    //        int val2 = 151;
+    // //class Program
+    // //{
+    // //    static void Main(string[] args)
+    // //    {
+    // //        string val1 = "151";
+    // //        int val2 = 151;
 
-    //        string sourPath = @"C:\Users\rohan\Downloads\Invoicing feed.xlsx";
-    //        string destPath = @"http://192.168.137.172/CaheadService/Images/Invoicing feed.xlsx";
+    // //        string sourPath = @"C:\Users\rohan\Downloads\Invoicing feed.xlsx";
+    // //        string destPath = @"http://192.168.137.172/CaheadService/Images/Invoicing feed.xlsx";
 
-    //        FileStream fs = new FileStream(sourPath, FileMode.Open, FileAccess.Read);
-    //        BinaryReader br = new BinaryReader(fs);
-    //        byte[] photo = br.ReadBytes((int)fs.Length);
-    //        br.Close();
-    //        fs.Close();
-    //        //return photo;
+    // //        FileStream fs = new FileStream(sourPath, FileMode.Open, FileAccess.Read);
+    // //        BinaryReader br = new BinaryReader(fs);
+    // //        byte[] photo = br.ReadBytes((int)fs.Length);
+    // //        br.Close();
+    // //        fs.Close();
+    // //        //return photo;
 
-    //        System.IO.File.WriteAllBytes(@"C:\Users\rohan\Downloads\TEMPInvoicingfeed.xlsx", photo);
+    // //        System.IO.File.WriteAllBytes(@"C:\Users\rohan\Downloads\TEMPInvoicingfeed.xlsx", photo);
 
-    //        //File.Copy(sourPath, destPath);
+    // //        //File.Copy(sourPath, destPath);
 
-    //        WebClient a = new WebClient();
-    //        a.Credentials = new NetworkCredential("rohan", "Rohan", "cahead.com");
-    //        //WebRequest serverRequest = WebRequest.Create(@"http://192.168.137.1/CaheadService/Images/");
-    //        a.UploadFile(destPath, sourPath);
+    // //        WebClient a = new WebClient();
+    // //        a.Credentials = new NetworkCredential("rohan", "Rohan", "cahead.com");
+    // //        //WebRequest serverRequest = WebRequest.Create(@"http://192.168.137.1/CaheadService/Images/");
+    // //        a.UploadFile(destPath, sourPath);
 
-    //        StreamReader reader = new StreamReader(sourPath);
-    //        byte[] byteArray = System.Text.Encoding.ASCII.GetBytes(reader.ReadToEnd());
-    //        System.IO.MemoryStream stream = new System.IO.MemoryStream(byteArray);
+    // //        StreamReader reader = new StreamReader(sourPath);
+    // //        byte[] byteArray = System.Text.Encoding.ASCII.GetBytes(reader.ReadToEnd());
+    // //        System.IO.MemoryStream stream = new System.IO.MemoryStream(byteArray);
 
-    //        //using (FileStream file = new FileStream(destPath, FileMode.Create, System.IO.FileAccess.Write))
-    //        //{
-    //            //byte[] bytes = new byte[stream.Length];
-    //            //stream.Read(bytes, 0, (int)stream.Length);
-    //            //file.Write(bytes, 0, bytes.Length);
-    //            //stream.Close();
-    //        //}
-    //    }
-    //}
+    // //        //using (FileStream file = new FileStream(destPath, FileMode.Create, System.IO.FileAccess.Write))
+    // //        //{
+    // //            //byte[] bytes = new byte[stream.Length];
+    // //            //stream.Read(bytes, 0, (int)stream.Length);
+    // //            //file.Write(bytes, 0, bytes.Length);
+    // //            //stream.Close();
+    // //        //}
+    // //    }
+    // //}
 
-    //public class MyClass
-    //{
-    //    static MyClass()
-    //    {
-    //        Console.WriteLine("In MyStatic Class");
-    //    }
+    // //public class MyClass
+    // //{
+    // //    static MyClass()
+    // //    {
+    // //        Console.WriteLine("In MyStatic Class");
+    // //    }
 
-    //    public MyClass()
-    //    {
-    //        Console.WriteLine("In MyClass");
-    //    }
+    // //    public MyClass()
+    // //    {
+    // //        Console.WriteLine("In MyClass");
+    // //    }
 
-    //    public MyClass(int i)
-    //    {
-    //        Console.WriteLine("In MyClass (int)");
-    //    }
+    // //    public MyClass(int i)
+    // //    {
+    // //        Console.WriteLine("In MyClass (int)");
+    // //    }
 
-    //    public static void Main(String[] arg)
-    //    {
-    //        new MyClass(23);
-    //    }
-    //}
+    // //    public static void Main(String[] arg)
+    // //    {
+    // //        new MyClass(23);
+    // //    }
+    // //}
 
     internal class Program
     {

@@ -216,8 +216,9 @@ namespace TestProject
                             if (string.IsNullOrEmpty(orderID)) continue;
                             orderDate = Converter.ToDateTime(dr["Date"]);
                             if (orderDate <= new DateTime(1900, 01, 01)) orderDate = DateTime.Now.Date;
-                            invoiceNo = 0;//Converter.ToInt(dr["Invoice No"]);
-                            //if (invoiceNo == 0) continue;
+                            invoiceNo = 0;
+							// //Converter.ToInt(dr["Invoice No"]);
+                            // //if (invoiceNo == 0) continue;
                             invoiceDate = DateTime.Now.Date;
 
                             productID = Converter.ToString(dr["SKU"]).ToUpper();

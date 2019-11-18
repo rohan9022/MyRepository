@@ -1,10 +1,7 @@
 
-IMS/.sonarlint/IMS.slconfig
+IMS/.sonarlint
 *.ruleset
-IMS/.vs/IMS/v16/.suo
-IMS/.vs/IMS/config/applicationhost.config
-IMS/.vs/IMS/v16/Server/sqlite3/db.lock
 bin
 obj
-IMS/.vs/IMS/v16/Server/sqlite3/storage.ide
 IMS/IMSService/IMSService.csproj.user
+IMS/.vs
